@@ -1,0 +1,86 @@
+:root {
+  --spacing-multiple-x: 0.5vw;
+  --spacing-multiple-y: 0.5vh;
+  --page-padding-x: calc(var(--spacing-multiple-x) * 10);
+  --page-padding-y: calc(var(--spacing-multiple-y) * 5);
+}
+
+body {
+  font-size: 18px;
+}
+
+header {
+  height: 15vh;
+  display: flex;
+  padding: var(--page-padding-y) var(--page-padding-x);
+  background-color: lightblue;
+}
+
+header .header-item {
+  flex: 1 1 auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+header div.logo {
+  font-size: xx-large;
+  white-space: nowrap;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 0.5vw;
+}
+
+section {
+  height: 100vh;
+  padding: var(--page-padding-y) var(--page-padding-x);
+}
+
+section.odd {
+  background-color: grey;
+}
+section.even {
+  background-color: darkgrey;
+}
+
+section#intro {
+  height: 85vh;
+  display: flex;
+  gap: calc(var(--spacing-multiple-x) * 5);
+}
+
+section#intro div#intro-text {
+  flex: 1 1 60%;
+}
+
+section#intro img#portrait {
+  flex: 1 1 40%;
+  width: 40vw;
+  height: 50vh;
+}
+
+footer {
+  padding: var(--page-padding-y) var(--page-padding-x);
+}
+
+/* temp */
+
+header div.logo {
+  border: solid 1px blue; /* temp */
+}
+
+nav,
+nav ul,
+nav ul li {
+  border: solid 1px green;
+}
+
+section#intro img#portrait {
+  border: solid 1px yellow;
+}
