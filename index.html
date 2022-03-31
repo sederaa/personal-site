@@ -23,21 +23,27 @@
     <link href="css/assets.css" rel="stylesheet" />
     <link href="css/forms.css" rel="stylesheet" />
     <link href="css/typography.css" rel="stylesheet" />
-    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/site.css?5" rel="stylesheet" />
   </head>
 
   <body>
     <header>
       <div class="logo header-item">Seb de Raadt</div>
-      <nav class="header-item">
+
+      <!-- Hamburger icon -->
+      <input class="menu-checkbox" type="checkbox" id="menu-checkbox"/>
+      <label class="hamburger-label" for="menu-checkbox"><span class="hamburger-lines"></span></label>
+
+
+      <nav class="header-item menu">
         <ul>
-          <li>tech</li>
-          <li>portfolio</li>
-          <li>contact</li>
-          <li>resume</li>
-          <li>linkedin</li>
-          <li>github</li>
-          <li>dark/light</li>
+          <li><a href="#">tech</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">contact</a></li>
+          <li><a href="#">resume</a></li>
+          <li><a href="#">linkedin</a></li>
+          <li><a href="#">github</a></li>
+          <li><a href="#">dark/light</a></li>
         </ul>
       </nav>
     </header>

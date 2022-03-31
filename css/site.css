@@ -3,6 +3,7 @@
   --spacing-multiple-y: 0.5vh;
   --page-padding-x: calc(var(--spacing-multiple-x) * 10);
   --page-padding-y: calc(var(--spacing-multiple-y) * 5);
+  --hamburger-line-thickness: 0.15rem;
 }
 
 body {
@@ -14,12 +15,13 @@ header {
   display: flex;
   padding: var(--page-padding-y) var(--page-padding-x);
   background-color: lightblue;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 header .header-item {
   flex: 1 1 auto;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
 }
 
 header div.logo {
@@ -27,14 +29,107 @@ header div.logo {
   white-space: nowrap;
 }
 
+nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 15vh;
+  background-color: lightblue;
+  overflow: hidden;
+
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+}
+
 nav ul {
-  display: flex;
-  justify-content: flex-end;
   margin: 0;
 }
 
-nav ul li {
-  margin: 0 0.5vw;
+nav a {
+  display: block;
+  padding: var(--page-padding-y) var(--page-padding-x);
+  color: white;
+}
+nav a:hover {
+  background-color: gray;
+}
+
+/* Menu Icon */
+.hamburger-label {
+  cursor: pointer;
+  padding-top: calc(var(--hamburger-line-thickness) * 2.5);
+}
+
+.hamburger-lines {
+  background: white;
+  display: block;
+  height: var(--hamburger-line-thickness);
+  position: relative;
+  width: 1.2rem;
+}
+
+.hamburger-lines::before,
+.hamburger-lines::after {
+  background: white;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.hamburger-lines::before {
+  top: calc(var(--hamburger-line-thickness) * 2);
+}
+.hamburger-lines::after {
+  top: calc(var(--hamburger-line-thickness) * 2 * -1);
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+/* Toggle menu icon */
+.menu-checkbox:checked ~ nav {
+  max-height: 100%;
+}
+.menu-checkbox:checked ~ .hamburger-label .hamburger-lines {
+  background: transparent;
+}
+.menu-checkbox:checked ~ .hamburger-label .hamburger-lines::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.menu-checkbox:checked ~ .hamburger-label .hamburger-lines::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  nav {
+    max-height: unset;
+    position: relative;
+    width: fit-content;
+    margin-top: unset;
+    top: unset;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  nav a {
+    padding: 0 calc(var(--spacing-multiple-x) * 2);
+  }
+  nav a:hover {
+    background-color: transparent;
+  }
+
+  .hamburger-label {
+    display: none;
+  }
 }
 
 section {
