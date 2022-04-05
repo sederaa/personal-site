@@ -24,6 +24,10 @@ header .header-item {
   flex: 1 1 auto;
 }
 
+header .menu.header-item {
+  text-align: right;
+}
+
 header div.logo {
   font-size: xx-large;
   white-space: nowrap;
@@ -59,6 +63,8 @@ nav a:hover {
 .hamburger-label {
   cursor: pointer;
   padding-top: calc(var(--hamburger-line-thickness) * 2.5);
+  height: 100%;
+  display: inline-block;
 }
 
 .hamburger-lines {
