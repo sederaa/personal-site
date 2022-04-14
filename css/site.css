@@ -1,3 +1,4 @@
+/* general */
 :root {
   --spacing-multiple-x: 0.5vw;
   --spacing-multiple-y: 0.5vh;
@@ -9,6 +10,18 @@
 body {
   font-size: 18px;
 }
+
+h2 {
+  text-transform: uppercase;
+  font-size: smaller;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* header */
 
 header {
   height: 15vh;
@@ -41,6 +54,8 @@ section.even {
   background-color: darkgrey;
 }
 
+/* intro */
+
 section#intro {
   height: 85vh;
   display: flex;
@@ -56,6 +71,23 @@ section#intro img#portrait {
   width: 40vw;
   height: 50vh;
 }
+
+/* tech */
+
+section#tech div#columns {
+  display: flex;
+}
+
+section#tech div#columns div {
+  flex: 1 1 auto;
+}
+
+section#tech img.tech-logo {
+  width: 2em;
+  height: 2em;
+}
+
+/* footer */
 
 footer {
   padding: var(--page-padding-y) var(--page-padding-x);
