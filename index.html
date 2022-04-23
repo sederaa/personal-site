@@ -68,7 +68,7 @@
               <li><img src="/img/tech-logos/sql.svg" alt="SQL logo" class="tech-logo" /> SQL</li>
               <li><img src="/img/tech-logos/visualstudio.svg" alt="Visual Studio logo" class="tech-logo" /> Visual Studio</li>
               <li><img src="/img/tech-logos/vscode.svg" alt="Visual Studio Code logo" class="tech-logo" /> Visual Studio Code</li>
-              <li>Entity Framework Core</li>
+              <li><div class="generic-tech-logo">EF</div> Entity Framework Core</li>
               <li><img src="/img/tech-logos/bootstrap.svg" alt="Bootstrap logo" class="tech-logo" /> Bootstrap</li>
               <li><img src="/img/tech-logos/octopusdeploy.svg" alt="Octopus Deploy logo" class="tech-logo" /> Octopus Deploy</li>
               
@@ -86,9 +86,9 @@
               <li><img src="/img/tech-logos/microsoft-sql-server.svg" alt="Microsoft SQL Server logo" class="tech-logo" /> SQL Server</li>
               <li><img src="/img/tech-logos/xstate.svg" alt="XState logo" class="tech-logo" /> XState</li>
               <li><img src="/img/tech-logos/haproxy.svg" alt="HAProxy logo" class="tech-logo" /> HAProxy</li>
-              <li>LINQ</li>
-              <li>xUnit</li>
-              <li>Moq</li>
+              <li><div class="generic-tech-logo">L</div> LINQ</li>
+              <li><img src="/img/tech-logos/xunit.svg" alt="xUnit logo" class="tech-logo" /> xUnit</li>
+              <li><div class="generic-tech-logo">M</div> Moq</li>
             </ul>
           </div>
           <div>
@@ -96,34 +96,34 @@
             <ul>
               <li><img src="/img/tech-logos/azure.svg" alt="Azure logo" class="tech-logo" /> Azure</li>
               <li><img src="/img/tech-logos/graphql.svg" alt="GraphQL logo" class="tech-logo" /> GraphQL</li>
-              <li>Web Components</li>
+              <li><div class="generic-tech-logo">WC</div> Web Components</li>
               <li><img src="/img/tech-logos/cloudflare.svg" alt="Cloudflare logo" class="tech-logo" /> Cloudflare</li>
             </ul>
 
           </div>
 
-          <div>
+          <div id="past-tech" style="display: none">
             <h2>Past</h2>
             <ul>
               <li><img src="/img/tech-logos/docker.svg" alt="Docker logo" class="tech-logo" /> Docker</li>
               <li><img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" class="tech-logo" /> RabbitMQ</li>
-              <li>Ninject</li>
+              <li><div class="generic-tech-logo">N</div> Ninject</li>
               <li><img src="/img/tech-logos/java.svg" alt="Java logo" class="tech-logo" /> Java</li>
               <li><img src="/img/tech-logos/jquery.svg" alt="jQuery logo" class="tech-logo" /> jQuery</li>
               <li><img src="/img/tech-logos/android.svg" alt="Android Studio logo" class="tech-logo" /> Android Studio</li>
               <li><img src="/img/tech-logos/jira.svg" alt="JIRA logo" class="tech-logo" /> JIRA</li>
-              <li>Confluence</li>
-              <li>TeamCity</li>
-              <li>ASP.NET WebForms</li>
-              <li>WCF</li>
-              <li>NHibernate</li>
+              <li><img src="/img/tech-logos/confluence.svg" alt="Atalassian Confluence logo" class="tech-logo" /> Confluence</li>
+              <li><img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" class="tech-logo" /> TeamCity</li>
+              <li><div class="generic-tech-logo">WF</div> ASP.NET WebForms</li>
+              <li><div class="generic-tech-logo">W</div> WCF</li>
+              <li><div class="generic-tech-logo">NH</div> NHibernate</li>
             </ul>
 
           </div>
 
-          
 
         </div>
+        <button id="view-past-tech-btn">View past tech</button>
 
       </section>
       <section id="portfolio" class="odd">
@@ -134,6 +134,15 @@
       </section>
     </main>
     <footer>&copy; YEAR Sebastian de Raadt</footer>
-    
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        let pastTechColumn = document.getElementById("past-tech");
+        let viewPastTechLink = document.getElementById("view-past-tech-btn");
+        viewPastTechLink.addEventListener("click", (ev)=>{
+          pastTechColumn.style.display = 'block';
+          viewPastTechLink.style.display = 'none';
+        });
+      });
+    </script>
   </body>
 </html>

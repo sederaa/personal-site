@@ -87,6 +87,18 @@ section#tech img.tech-logo {
   height: 2em;
 }
 
+div.generic-tech-logo {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  background-color: gray;
+  border-radius: 5em;
+  line-height: 2em;
+  color: white;
+  font-weight: bold;
+}
+
 /* footer */
 
 footer {
