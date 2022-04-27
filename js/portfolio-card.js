@@ -3,64 +3,64 @@ class PortfolioCard extends HTMLElement {
     super();
     let shadowDom = this.attachShadow({ mode: "open" });
     shadowDom.innerHTML = `
-    <template id="portfolio-card-template">
-        <link href="css/sanitize.css" rel="stylesheet" />
-        <link href="css/assets.css" rel="stylesheet" />
-        <link href="css/forms.css" rel="stylesheet" />
-        <link href="css/typography.css" rel="stylesheet" />
+        <template id="portfolio-card-template">
+            <link href="css/sanitize.css" rel="stylesheet" />
+            <link href="css/assets.css" rel="stylesheet" />
+            <link href="css/forms.css" rel="stylesheet" />
+            <link href="css/typography.css" rel="stylesheet" />
 
-        <style>
-            .card {
-                background-color: white;
-                padding: var(--page-padding-y);
-                border: solid 1px grey;
-                border-radius: 3px;
-            }
+            <style>
+                .card {
+                    background-color: white;
+                    padding: var(--page-padding-y);
+                    border: solid 1px grey;
+                    border-radius: 3px;
+                }
 
-            .card__context {
-                text-transform: uppercase;
-                color: grey;
-                font-size: smaller;
-            }
+                .card__context {
+                    text-transform: uppercase;
+                    color: grey;
+                    font-size: smaller;
+                }
 
-            .card__title {
-                font-size: larger;
-                margin-bottom: var(--page-padding-y);
-            }
+                .card__title {
+                    font-size: larger;
+                    margin-bottom: var(--page-padding-y);
+                }
 
-            .card__description {
-            }
+                .card__description {
+                }
 
-            .card__actions a {
-                display: inline-block;
-                background-color: grey;
-                border-radius: 3px;
-                padding: var(--spacing-multiple-y) var(--spacing-multiple-x);
-                color: white;
-                text-decoration: none;
-            }
-        </style>
-    
-        <article class="card" id="article-container">
-        <div class="card__content">
-            <div class="card__context">
-                <slot name="context"></slot>
+                .card__actions a {
+                    display: inline-block;
+                    background-color: grey;
+                    border-radius: 3px;
+                    padding: var(--spacing-multiple-y) var(--spacing-multiple-x);
+                    color: white;
+                    text-decoration: none;
+                }
+            </style>
+        
+            <article class="card" id="article-container">
+            <div class="card__content">
+                <div class="card__context">
+                    <slot name="context"></slot>
+                </div>
+                <div class="card__title">
+                    <slot name="title"></slot>
+                </div>
+                <div class="card_description">
+                    <slot name="description"></slot>
+                </div>
+                <div class="card__techs">
+                    <slot name="tech-icons"></slot>
+                </div>
+                <div class="card__actions">
+                    <slot name="actions"></slot>
+                </div>
             </div>
-            <div class="card__title">
-                <slot name="title"></slot>
-            </div>
-            <div class="card_description">
-                <slot name="description"></slot>
-            </div>
-            <div class="card__techs">
-                <slot name="tech-icons"></slot>
-            </div>
-            <div class="card__actions">
-                <slot name="actions"></slot>
-            </div>
-        </div>
-        </article>
-    </template>
+            </article>
+        </template>
     `;
   }
 
@@ -89,10 +89,6 @@ class PortfolioCard extends HTMLElement {
     let cardContentHeight = item
       .querySelector(".card__content")
       .getBoundingClientRect().height;
-
-    // console.debug(
-    //   `cardContentHeight = ${cardContentHeight}, rowGap = ${rowGap}, itemYPadding = ${itemYPadding}, rowHeight = ${rowHeight}.`
-    // );
 
     let rowSpan = Math.ceil(
       (cardContentHeight + rowGap + itemYPadding) / (rowHeight + rowGap)
