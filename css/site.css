@@ -108,36 +108,6 @@ section#portfolio div.grid {
   grid-auto-rows: 20px;
 }
 
-.card {
-  background-color: white;
-  padding: var(--page-padding-y);
-  border: solid 1px grey;
-  border-radius: 3px;
-}
-
-.card__tagline {
-  text-transform: uppercase;
-  color: grey;
-  font-size: smaller;
-}
-
-.card__title {
-  font-size: larger;
-  margin-bottom: var(--page-padding-y);
-}
-
-.card__description {
-}
-
-.card__actions a {
-  display: inline-block;
-  background-color: grey;
-  border-radius: 3px;
-  padding: var(--spacing-multiple-y) var(--spacing-multiple-x);
-  color: white;
-  text-decoration: none;
-}
-
 /* footer */
 
 footer {

@@ -114,7 +114,8 @@ class MainMenu extends HTMLElement {
       .hamburger-label {
         display: none;
       }
-    }    </style>
+    }    
+    </style>
     
     <input class="menu-checkbox" type="checkbox" id="menu-checkbox"/>
     <label class="hamburger-label" for="menu-checkbox"><span class="hamburger-lines"></span></label>

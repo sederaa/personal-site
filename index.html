@@ -24,6 +24,7 @@
     <link href="css/site.css?5" rel="stylesheet" />
 
     <script src="js/main-menu.js" defer></script>
+    <script src="js/portfolio-card.js" defer></script>
   </head>
 
   <body>
@@ -130,58 +131,14 @@
         <h1>Portfolio</h1>
 
         <div class="grid">
-          <article class="card">
-            <div class="card__content">
-              <div class="card__tagline">Side Project</div>
-              <div class="card__title">Cut Optimizer</div>
-              <div class="card_description">card 1 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
-              <div class="card__techs">
-                <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
-                <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
-                <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
-              </div>
-              <div class="card__actions">
-                <a href="#">View Site</a>
-                <a href="#">View Code</a>
-              </div>
-            </div>
-          </article>
 
-          <article class="card">
-            <div class="card__content">
-              card 2 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-            </div>
-          </article>
+          <portfolio-card></portfolio-card>
 
-          <article class="card">
-            <div class="card__content">
-              card 3 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-            </div>
-          </article>
+          <portfolio-card></portfolio-card>
 
-          <article class="card">
-            <div class="card__content">
-              card 4 text text text  text text text text text text text text text text text text text text text text text text text text text text text
-            </div>
-          </article>
+          <portfolio-card></portfolio-card>
 
-          <article class="card">
-            <div class="card__content">
-              card 5 text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__content">
-              card 6 text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__content">
-              card 7 text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-            </div>
-          </article>
+        
         </div>
         <!-- masonry ref: https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb -->
       </section>
@@ -198,31 +155,30 @@
           pastTechColumn.style.display = 'block';
           viewPastTechLink.style.display = 'none';
         });
+        resizeAllGridItems();
       });
 
-      function resizeGridItem(item){
-        let itemComputedStyle = window.getComputedStyle(item);
-        let itemYPadding = parseFloat(itemComputedStyle.getPropertyValue("padding-top"))
-                        + parseFloat(itemComputedStyle.getPropertyValue("padding-bottom"));
-        let grid = document.getElementsByClassName("grid")[0];
-        let gridComputedStyle = window.getComputedStyle(grid);
-        let rowHeight = parseInt(gridComputedStyle.getPropertyValue('grid-auto-rows'));
-        let rowGap = parseInt(gridComputedStyle.getPropertyValue('grid-row-gap'));
-        let cardContentHeight = item.querySelector('.card__content').getBoundingClientRect().height;
-        let rowSpan = Math.ceil((cardContentHeight+rowGap+itemYPadding)/(rowHeight+rowGap));
-        item.style.gridRowEnd = "span "+rowSpan;
-      }
 
       function resizeAllGridItems(){
+
+
         console.info(`resizeAllGridItems`);
-        let allItems = document.getElementsByClassName("card");
+
+   
+
+        let allItems = document.getElementsByTagName("portfolio-card");
         for(x=0;x<allItems.length;x++){
-            resizeGridItem(allItems[x]);
+          console.debug(allItems[x]);
+          allItems[x].resize();
+            //resizeGridItem(allItems[x]);
         }
+
+
+
       }
 
-      window.onload = resizeAllGridItems();
       window.addEventListener("resize", resizeAllGridItems);
+
 
 
     </script>
