@@ -132,13 +132,80 @@
 
         <div class="grid">
 
-          <portfolio-card></portfolio-card>
+          <portfolio-card>
+            <span slot="context">Card 1 context</span>
+            <span slot="title">Card 1</span>
+            <span slot="description">card 1 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
+            <span slot="tech-icons">
+              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
+              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
+              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
+            </span>
+            <span slot="actions">
+              <a href="#">View Site</a>
+              <a href="#">View Code</a>
+            </span>
+          </portfolio-card>
 
-          <portfolio-card></portfolio-card>
+          <portfolio-card>
+            <span slot="context">Card 2 context</span>
+            <span slot="title">Card 2</span>
+            <span slot="description">card 2 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
+            <span slot="tech-icons">
+              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
+              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
+              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
+            </span>
+            <span slot="actions">
+              <a href="#">View Site</a>
+              <a href="#">View Code</a>
+            </span>
+          </portfolio-card>
 
-          <portfolio-card></portfolio-card>
+          <portfolio-card>
+            <span slot="context">Card 3 context</span>
+            <span slot="title">Card 3</span>
+            <span slot="description">card 3 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
+            <span slot="tech-icons">
+              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
+              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
+              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
+            </span>
+            <span slot="actions">
+              <a href="#">View Site</a>
+              <a href="#">View Code</a>
+            </span>
+          </portfolio-card>
 
-        
+          <portfolio-card>
+            <span slot="context">Card 4 context</span>
+            <span slot="title">Card 4</span>
+            <span slot="description">card 4 text text text  text text text text text text text text text text text text text text text text text text text text</span>
+            <span slot="tech-icons">
+              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
+              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
+              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
+            </span>
+            <span slot="actions">
+              <a href="#">View Site</a>
+              <a href="#">View Code</a>
+            </span>
+          </portfolio-card>
+
+          <portfolio-card>
+            <span slot="context">Card 5 context</span>
+            <span slot="title">Card 5</span>
+            <span slot="description">card 5 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
+            <span slot="tech-icons">
+              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
+              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
+              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
+            </span>
+            <span slot="actions">
+              <a href="#">View Site</a>
+              <a href="#">View Code</a>
+            </span>
+          </portfolio-card>
         </div>
         <!-- masonry ref: https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb -->
       </section>
@@ -160,21 +227,11 @@
 
 
       function resizeAllGridItems(){
-
-
         console.info(`resizeAllGridItems`);
-
-   
-
         let allItems = document.getElementsByTagName("portfolio-card");
         for(x=0;x<allItems.length;x++){
-          console.debug(allItems[x]);
           allItems[x].resize();
-            //resizeGridItem(allItems[x]);
         }
-
-
-
       }
 
       window.addEventListener("resize", resizeAllGridItems);
