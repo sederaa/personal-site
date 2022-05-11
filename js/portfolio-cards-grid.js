@@ -1,3 +1,5 @@
+import { default as data } from "./portfolio-cards-data.js";
+
 class PortfolioCardsGrid extends HTMLElement {
   constructor() {
     super();
@@ -21,44 +23,63 @@ class PortfolioCardsGrid extends HTMLElement {
   }
 
   connectedCallback() {
-    const gridElement = this.shadowRoot.getElementById("grid");
+    //console.debug(data);
 
-    for (let i = 0; i < 5; i++) {
+    const gridElement = this.shadowRoot.getElementById("grid");
+    let gridComputedStyle = window.getComputedStyle(gridElement);
+
+    let rowHeight = parseInt(
+      gridComputedStyle.getPropertyValue("grid-auto-rows")
+    );
+    let rowGap = parseInt(gridComputedStyle.getPropertyValue("grid-row-gap"));
+
+    data.forEach((data) => {
       const portfolioCard = document.createElement("portfolio-card");
+
+      if (data.imageUrl !== undefined) {
+        const image = document.createElement("img");
+        image.slot = "image";
+        image.src = data.imageUrl;
+        portfolioCard.appendChild(image);
+      }
 
       const context = document.createElement("span");
       context.slot = "context";
-      context.innerText = "Context" + i.toString();
+      context.innerText = data.context;
       portfolioCard.appendChild(context);
 
       const title = document.createElement("span");
       title.slot = "title";
-      title.innerText = "Card" + i.toString();
+      title.innerText = data.title;
       portfolioCard.appendChild(title);
 
       const description = document.createElement("span");
       description.slot = "description";
-      let descriptionText = "Description ";
-      for (let j = 0; j < Math.random() * 100; j++) {
-        descriptionText += " text";
-      }
-      description.innerText = descriptionText;
+      description.innerText = data.description;
       portfolioCard.appendChild(description);
 
       const techIcons = document.createElement("span");
       techIcons.slot = "tech-icons";
-      techIcons.innerHTML =
-        '<img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" /><img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" /><img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />';
+      techIcons.innerHTML = data.tech
+        .map(
+          (t) =>
+            `<img src="/img/tech-logos/${t}.svg" alt="${t} logo" style="width:1em;" />`
+        )
+        .join("");
       portfolioCard.appendChild(techIcons);
 
       const actions = document.createElement("span");
       actions.slot = "actions";
-      actions.innerHTML = '<a href="#">View Site</a><a href="#">View Code</a>';
+      actions.innerHTML =
+        (data.url !== undefined ? `<a href="${data.url}">View Site</a>` : "") +
+        (data.sourceUrl !== undefined
+          ? `<a href="${data.sourceUrl}">View Code</a>`
+          : "");
       portfolioCard.appendChild(actions);
 
       gridElement.appendChild(portfolioCard);
-      portfolioCard.resize();
-    }
+      portfolioCard.resize(rowHeight, rowGap);
+    });
   }
 
   resize() {
