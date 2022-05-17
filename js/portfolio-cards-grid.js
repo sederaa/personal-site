@@ -10,14 +10,21 @@ class PortfolioCardsGrid extends HTMLElement {
         <link href="css/forms.css" rel="stylesheet" />
         <link href="css/typography.css" rel="stylesheet" />
         <style>
-          .grid {
+          .portfolio-card-grid {
             display: grid;
             grid-gap: 1em;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             grid-auto-rows: 20px;
-          }      
+          }
+          .portfolio-card {
+            
+          }
+
+          .portfolio-card__tech-icon {
+            width:1em;
+          }
         </style>
-        <div id="grid" class="grid">
+        <div id="grid" class="portfolio-card-grid">
         </div>
       `;
   }
@@ -35,6 +42,7 @@ class PortfolioCardsGrid extends HTMLElement {
 
     data.forEach((data) => {
       const portfolioCard = document.createElement("portfolio-card");
+      portfolioCard.className = "portfolio-card";
 
       if (data.imageUrl !== undefined) {
         const image = document.createElement("img");
@@ -63,7 +71,7 @@ class PortfolioCardsGrid extends HTMLElement {
       techIcons.innerHTML = data.tech
         .map(
           (t) =>
-            `<img src="/img/tech-logos/${t}.svg" alt="${t} logo" style="width:1em;" />`
+            `<img src="/img/tech-logos/${t}.svg" alt="${t} logo" class="portfolio-card__tech-icon" />`
         )
         .join("");
       portfolioCard.appendChild(techIcons);
@@ -83,7 +91,7 @@ class PortfolioCardsGrid extends HTMLElement {
   }
 
   resize() {
-    console.info(`PortfolioCardsGrid.resize`);
+    //console.info(`PortfolioCardsGrid.resize`);
     let allItems = this.shadowRoot.getElementsByTagName("portfolio-card");
     for (x = 0; x < allItems.length; x++) {
       allItems[x].resize();

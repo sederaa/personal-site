@@ -29,206 +29,362 @@
   </head>
 
   <body>
-    <header>
-      <div class="logo header-item">Seb de Raadt</div>
+    <header class="header">
+      <div class="header__logo">Seb de Raadt</div>
 
-      <div class="menu header-item">
-
+      <div class="header__menu">
         <main-menu></main-menu>
-
       </div>
-
     </header>
 
     <main>
-      <section id="intro" class="odd">
-        <div id="intro-text">
-          <p class="lead">
-            Hi, I'm a software engineer passionate about building React-based applications,
-            ASP.NET Core APIs and micro services.
+      <section class="section section__intro section--odd">
+        <div class="section__intro-text">
+          <p>
+            Hi, I'm a software engineer passionate about building React-based
+            applications, ASP.NET Core APIs and micro services.
           </p>
-          <p class="lead"></p>
-            I have 20+ years experience building web
-            applications of all sizes, micro services, integrations, auth servers, mobile apps,
-            and many others. I have worked
-            primarily in the freight and fintech industries in recent years.
-          </p>  
+          <p>
+            I have 20+ years experience building web applications of all sizes,
+            micro services, integrations, auth servers, mobile apps, and many
+            others. I have worked primarily in the freight and fintech
+            industries in recent years.
+          </p>
         </div>
-        <img id="portrait" src="#" alt="Picture of Seb de Raadt" />
+        <img
+          src="#"
+          class="section__intro-portrait"
+          alt="Picture of Seb de Raadt"
+        />
       </section>
-      <section id="tech" class="even">
+      <section class="section section__tech section--even">
         <h1>Tech</h1>
-        <div id="columns">
-          <div>
+        <div class="columns">
+          <div class="columns__column">
             <h2>Proficient</h2>
             <ul>
-              <li><img src="/img/tech-logos/html5.svg" alt="HTML5 logo" class="tech-logo" />HTML</li>
-              <li><img src="/img/tech-logos/dotnetcore.svg" alt=".NET Core logo" class="tech-logo" /> ASP.NET Core</li>
-              <li><img src="/img/tech-logos/csharp.svg" alt="C# logo" class="tech-logo" /> C#</li>
-              <li><img src="/img/tech-logos/javascript.svg" alt="JavaScript logo" class="tech-logo" /> JavaScript</li>
-              <li><img src="/img/tech-logos/typescript.svg" alt="TypeScript logo" class="tech-logo" /> TypeScript</li>
-              <li><img src="/img/tech-logos/sql.svg" alt="SQL logo" class="tech-logo" /> SQL</li>
-              <li><img src="/img/tech-logos/visualstudio.svg" alt="Visual Studio logo" class="tech-logo" /> Visual Studio</li>
-              <li><img src="/img/tech-logos/vscode.svg" alt="Visual Studio Code logo" class="tech-logo" /> Visual Studio Code</li>
-              <li><div class="generic-tech-logo">EF</div> Entity Framework Core</li>
-              <li><img src="/img/tech-logos/bootstrap.svg" alt="Bootstrap logo" class="tech-logo" /> Bootstrap</li>
-              <li><img src="/img/tech-logos/octopusdeploy.svg" alt="Octopus Deploy logo" class="tech-logo" /> Octopus Deploy</li>
-              
+              <li>
+                <img
+                  src="/img/tech-logos/html5.svg"
+                  alt="HTML5 logo"
+                  class="section__tech-logo"
+                />HTML
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/dotnetcore.svg"
+                  alt=".NET Core logo"
+                  class="section__tech-logo"
+                />
+                ASP.NET Core
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/csharp.svg"
+                  alt="C# logo"
+                  class="section__tech-logo"
+                />
+                C#
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/javascript.svg"
+                  alt="JavaScript logo"
+                  class="section__tech-logo"
+                />
+                JavaScript
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/typescript.svg"
+                  alt="TypeScript logo"
+                  class="section__tech-logo"
+                />
+                TypeScript
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/sql.svg"
+                  alt="SQL logo"
+                  class="section__tech-logo"
+                />
+                SQL
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/visualstudio.svg"
+                  alt="Visual Studio logo"
+                  class="section__tech-logo"
+                />
+                Visual Studio
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/vscode.svg"
+                  alt="Visual Studio Code logo"
+                  class="section__tech-logo"
+                />
+                Visual Studio Code
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">EF</div>
+                Entity Framework Core
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/bootstrap.svg"
+                  alt="Bootstrap logo"
+                  class="section__tech-logo"
+                />
+                Bootstrap
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/octopusdeploy.svg"
+                  alt="Octopus Deploy logo"
+                  class="section__tech-logo"
+                />
+                Octopus Deploy
+              </li>
             </ul>
           </div>
-          <div>
+          <div class="columns__column">
             <h2>Comfortable</h2>
             <ul>
-              <li><img src="/img/tech-logos/react.svg" alt="React logo" class="tech-logo" /> React JS</li>
-              <li><img src="/img/tech-logos/css3.svg" alt="CSS logo" class="tech-logo" /> CSS</li>
-              <li><img src="/img/tech-logos/dotnetframework.svg" alt=".NET Framework logo" class="tech-logo" /> ASP.NET Framework</li>
-              <li><img src="/img/tech-logos/azuredevops.svg" alt="Azure DevOps logo" class="tech-logo" /> Azure DevOps</li>
-              <li><img src="/img/tech-logos/azurecosmosdb.svg" alt="Azure Cosmos DB logo" class="tech-logo" /> Azure Cosmos DB</li>
-              <li><img src="/img/tech-logos/azureservicebus.svg" alt="Azure logo" class="tech-logo" /> Azure Service Bus</li>
-              <li><img src="/img/tech-logos/microsoft-sql-server.svg" alt="Microsoft SQL Server logo" class="tech-logo" /> SQL Server</li>
-              <li><img src="/img/tech-logos/xstate.svg" alt="XState logo" class="tech-logo" /> XState</li>
-              <li><img src="/img/tech-logos/haproxy.svg" alt="HAProxy logo" class="tech-logo" /> HAProxy</li>
-              <li><div class="generic-tech-logo">L</div> LINQ</li>
-              <li><img src="/img/tech-logos/xunit.svg" alt="xUnit logo" class="tech-logo" /> xUnit</li>
-              <li><div class="generic-tech-logo">M</div> Moq</li>
+              <li>
+                <img
+                  src="/img/tech-logos/react.svg"
+                  alt="React logo"
+                  class="section__tech-logo"
+                />
+                React JS
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/css3.svg"
+                  alt="CSS logo"
+                  class="section__tech-logo"
+                />
+                CSS
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/dotnetframework.svg"
+                  alt=".NET Framework logo"
+                  class="section__tech-logo"
+                />
+                ASP.NET Framework
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/azuredevops.svg"
+                  alt="Azure DevOps logo"
+                  class="section__tech-logo"
+                />
+                Azure DevOps
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/azurecosmosdb.svg"
+                  alt="Azure Cosmos DB logo"
+                  class="section__tech-logo"
+                />
+                Azure Cosmos DB
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/azureservicebus.svg"
+                  alt="Azure logo"
+                  class="section__tech-logo"
+                />
+                Azure Service Bus
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/microsoft-sql-server.svg"
+                  alt="Microsoft SQL Server logo"
+                  class="section__tech-logo"
+                />
+                SQL Server
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/xstate.svg"
+                  alt="XState logo"
+                  class="section__tech-logo"
+                />
+                XState
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/haproxy.svg"
+                  alt="HAProxy logo"
+                  class="section__tech-logo"
+                />
+                HAProxy
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">L</div>
+                LINQ
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/xunit.svg"
+                  alt="xUnit logo"
+                  class="section__tech-logo"
+                />
+                xUnit
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">M</div>
+                Moq
+              </li>
             </ul>
           </div>
-          <div>
+          <div class="columns__column">
             <h2>Exploring</h2>
             <ul>
-              <li><img src="/img/tech-logos/azure.svg" alt="Azure logo" class="tech-logo" /> Azure</li>
-              <li><img src="/img/tech-logos/graphql.svg" alt="GraphQL logo" class="tech-logo" /> GraphQL</li>
-              <li><div class="generic-tech-logo">WC</div> Web Components</li>
-              <li><img src="/img/tech-logos/cloudflare.svg" alt="Cloudflare logo" class="tech-logo" /> Cloudflare</li>
+              <li>
+                <img
+                  src="/img/tech-logos/azure.svg"
+                  alt="Azure logo"
+                  class="section__tech-logo"
+                />
+                Azure
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/graphql.svg"
+                  alt="GraphQL logo"
+                  class="section__tech-logo"
+                />
+                GraphQL
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">WC</div>
+                Web Components
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/cloudflare.svg"
+                  alt="Cloudflare logo"
+                  class="section__tech-logo"
+                />
+                Cloudflare
+              </li>
             </ul>
-
           </div>
 
-          <div id="past-tech" style="display: none">
+          <div id="past-tech" style="display: none" class="columns__column">
             <h2>Past</h2>
             <ul>
-              <li><img src="/img/tech-logos/docker.svg" alt="Docker logo" class="tech-logo" /> Docker</li>
-              <li><img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" class="tech-logo" /> RabbitMQ</li>
-              <li><div class="generic-tech-logo">N</div> Ninject</li>
-              <li><img src="/img/tech-logos/java.svg" alt="Java logo" class="tech-logo" /> Java</li>
-              <li><img src="/img/tech-logos/jquery.svg" alt="jQuery logo" class="tech-logo" /> jQuery</li>
-              <li><img src="/img/tech-logos/android.svg" alt="Android Studio logo" class="tech-logo" /> Android Studio</li>
-              <li><img src="/img/tech-logos/jira.svg" alt="JIRA logo" class="tech-logo" /> JIRA</li>
-              <li><img src="/img/tech-logos/confluence.svg" alt="Atalassian Confluence logo" class="tech-logo" /> Confluence</li>
-              <li><img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" class="tech-logo" /> TeamCity</li>
-              <li><div class="generic-tech-logo">WF</div> ASP.NET WebForms</li>
-              <li><div class="generic-tech-logo">W</div> WCF</li>
-              <li><div class="generic-tech-logo">NH</div> NHibernate</li>
+              <li>
+                <img
+                  src="/img/tech-logos/docker.svg"
+                  alt="Docker logo"
+                  class="section__tech-logo"
+                />
+                Docker
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/rabbitmq.svg"
+                  alt="RabbitMQ logo"
+                  class="section__tech-logo"
+                />
+                RabbitMQ
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">N</div>
+                Ninject
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/java.svg"
+                  alt="Java logo"
+                  class="section__tech-logo"
+                />
+                Java
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/jquery.svg"
+                  alt="jQuery logo"
+                  class="section__tech-logo"
+                />
+                jQuery
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/android.svg"
+                  alt="Android Studio logo"
+                  class="section__tech-logo"
+                />
+                Android Studio
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/jira.svg"
+                  alt="JIRA logo"
+                  class="section__tech-logo"
+                />
+                JIRA
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/confluence.svg"
+                  alt="Atalassian Confluence logo"
+                  class="section__tech-logo"
+                />
+                Confluence
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/teamcity.svg"
+                  alt="TeamCity logo"
+                  class="section__tech-logo"
+                />
+                TeamCity
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">WF</div>
+                ASP.NET WebForms
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">W</div>
+                WCF
+              </li>
+              <li>
+                <div class="section__generic-tech-logo">NH</div>
+                NHibernate
+              </li>
             </ul>
-
           </div>
-
-
         </div>
         <button id="view-past-tech-btn">View past tech</button>
-
       </section>
-      <section id="portfolio" class="odd">
+      <section id="portfolio" class="section section--odd">
         <h1>Portfolio</h1>
 
         <portfolio-cards-grid id="portfolio-cards-grid"></portfolio-cards-grid>
-<!--
-        <div class="grid">
 
-          <portfolio-card>
-            <span slot="context">Card 1 context</span>
-            <span slot="title">Card 1</span>
-            <span slot="description">card 1 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
-            <span slot="tech-icons">
-              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
-              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
-              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
-            </span>
-            <span slot="actions">
-              <a href="#">View Site</a>
-              <a href="#">View Code</a>
-            </span>
-          </portfolio-card>
-
-          <portfolio-card>
-            <span slot="context">Card 2 context</span>
-            <span slot="title">Card 2</span>
-            <span slot="description">card 2 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
-            <span slot="tech-icons">
-              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
-              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
-              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
-            </span>
-            <span slot="actions">
-              <a href="#">View Site</a>
-              <a href="#">View Code</a>
-            </span>
-          </portfolio-card>
-
-          <portfolio-card>
-            <span slot="context">Card 3 context</span>
-            <span slot="title">Card 3</span>
-            <span slot="description">card 3 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
-            <span slot="tech-icons">
-              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
-              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
-              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
-            </span>
-            <span slot="actions">
-              <a href="#">View Site</a>
-              <a href="#">View Code</a>
-            </span>
-          </portfolio-card>
-
-          <portfolio-card>
-            <span slot="context">Card 4 context</span>
-            <span slot="title">Card 4</span>
-            <span slot="description">card 4 text text text  text text text text text text text text text text text text text text text text text text text text</span>
-            <span slot="tech-icons">
-              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
-              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
-              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
-            </span>
-            <span slot="actions">
-              <a href="#">View Site</a>
-              <a href="#">View Code</a>
-            </span>
-          </portfolio-card>
-
-          <portfolio-card>
-            <span slot="context">Card 5 context</span>
-            <span slot="title">Card 5</span>
-            <span slot="description">card 5 text text text  text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
-            <span slot="tech-icons">
-              <img src="/img/tech-logos/docker.svg" alt="Docker logo" style="width:1em;" />
-              <img src="/img/tech-logos/rabbitmq.svg" alt="RabbitMQ logo" style="width:1em;" />
-              <img src="/img/tech-logos/teamcity.svg" alt="TeamCity logo" style="width:1em;" />
-            </span>
-            <span slot="actions">
-              <a href="#">View Site</a>
-              <a href="#">View Code</a>
-            </span>
-          </portfolio-card>
-        </div>
-        -->
         <!-- masonry ref: https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb -->
       </section>
-      <section id="contact" class="even">
+      <section id="contact" class="section section--even">
         <h1>Contact</h1>
       </section>
     </main>
-    <footer>&copy; YEAR Sebastian de Raadt</footer>
+    <footer class="footer">&copy; YEAR Sebastian de Raadt</footer>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function () {
         let pastTechColumn = document.getElementById("past-tech");
         let viewPastTechLink = document.getElementById("view-past-tech-btn");
-        viewPastTechLink.addEventListener("click", (ev)=>{
-          pastTechColumn.style.display = 'block';
-          viewPastTechLink.style.display = 'none';
+        viewPastTechLink.addEventListener("click", (ev) => {
+          pastTechColumn.style.display = "block";
+          viewPastTechLink.style.display = "none";
         });
         //resizeAllGridItems();
       });
-
 
       // function resizeAllGridItems(){
       //   console.info(`resizeAllGridItems`);
