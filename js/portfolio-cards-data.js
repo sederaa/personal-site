@@ -34,15 +34,119 @@ export default [
   },
   {
     context: "EMPLOYER",
-    title: "Tracking Event Micro-service",
+    title: "Tracking Event Microservice",
     description:
-      "Micro-service to receive and store tracking events from carriers by webhook or API polling. Publishes tracking events to other internal apps for display.",
+      "Microservice to receive and store tracking events from carriers by webhook or API polling. Publishes tracking events to other internal apps for display.",
     tech: [
       "dotnetcore",
       "azureservicebus",
       "csharp",
       "microsoft-sql-server",
       "octopusdeploy",
+    ],
+    url: undefined,
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "EMPLOYER",
+    title: "Consumer Freight Dispatch App",
+    description:
+      "Web app for consumers and small businesses to dispatch their freight.",
+    tech: [
+      "csharp",
+      "dotnetcore",
+      "haproxy",
+      "react",
+      "typescript",
+      "sql",
+      "xstate",
+      "octopusdeploy",
+    ],
+    url: undefined,
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "EMPLOYER",
+    title: "Auth Server",
+    description:
+      "Auth server implementing OAuth 2.0 and OpenID Connect protocols providing single sign-in to the organisation with support for Google, Microsoft and Facebook sign-in.",
+    tech: [
+      "csharp",
+      "dotnetcore",
+      "haproxy",
+      "sql",
+      "octopusdeploy",
+      "bootstrap",
+      "microsoft-sql-server",
+    ], // Also IdentityServer4, OIDC and OAuth2 logos
+    url: undefined,
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "GOSWEETSPOT",
+    title: "Zapier Integration",
+    description:
+      "Integration with Zapier allowing customers to include GoSweetSpot in their automations with 4000+ other popular apps and services.",
+    tech: ["csharp", "dotnetframework"], // Also Zapier icon
+    url: "https://zapier.com/apps/gosweetspot/integrations",
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "EMPLOYER",
+    title: "Rating Microservice",
+    description:
+      "Microservice to store courier and bulk carrier pricing and calculating freight prices on demand from other apps.",
+    tech: ["csharp", "dotnetframework", "microsoft-sql-server", "sql"],
+    url: undefined,
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "EMPLOYER",
+    title: "Tracking Event Microservice",
+    description:
+      "Microservice to receive and store tracking events from carriers by API polling, FTP CSV files and email attachments. Publishes tracking events by message broker to other internal apps for display.",
+    tech: [
+      "dotnetframework",
+      "rabbitmq",
+      "csharp",
+      "microsoft-sql-server",
+      "octopusdeploy",
+      "teamcity",
+      "sql",
+    ],
+    url: undefined,
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "EMPLOYER",
+    title: "Courier Driver Scanner Mobile App",
+    description:
+      "Android native mobile app with barcode scanning, signature on glass and pick up job management for use by courier drivers. Uses built-in barcode scanner of ruggedized Motorola devices.",
+    tech: ["android", "java"], // also motorola logo
+    url: undefined,
+    sourceUrl: undefined,
+    imageUrl: "/img/tech-logos/android.svg",
+  },
+  {
+    context: "EMPLOYER",
+    title: "Business Freight Dispatch App",
+    description:
+      "Web app for businesses to dispatch their freight, print labels, view reporting and other related functions.",
+    tech: [
+      "bootstrap",
+      "csharp",
+      "dotnetframework",
+      "react",
+      "microsoft-sql-server",
+      "sql",
+      "octopusdeploy",
+      "teamcity",
     ],
     url: undefined,
     sourceUrl: undefined,
