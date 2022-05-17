@@ -1,5 +1,7 @@
 import { default as data } from "./portfolio-cards-data.js";
 
+// masonry ref: https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb
+
 class PortfolioCardsGrid extends HTMLElement {
   constructor() {
     super();
