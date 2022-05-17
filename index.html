@@ -27,6 +27,7 @@
     <script src="js/portfolio-card.js" defer></script>
     <script type="module" src="js/portfolio-cards-grid.js" defer></script>
     <script src="js/contact-form.js" defer></script>
+    <script src="js/current-year.js" defer></script>
   </head>
 
   <body>
@@ -380,7 +381,9 @@
         <contact-form></contact-form>
       </section>
     </main>
-    <footer class="footer">&copy; YEAR Sebastian de Raadt</footer>
+    <footer class="footer">
+      &copy; <current-year></current-year> Sebastian de Raadt
+    </footer>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function () {
         let pastTechColumn = document.getElementById("past-tech");
