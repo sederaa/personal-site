@@ -26,6 +26,7 @@
     <script src="js/main-menu.js" defer></script>
     <script src="js/portfolio-card.js" defer></script>
     <script type="module" src="js/portfolio-cards-grid.js" defer></script>
+    <script src="js/contact-form.js" defer></script>
   </head>
 
   <body>
@@ -372,6 +373,11 @@
       </section>
       <section id="contact" class="section section--even">
         <h1>Contact</h1>
+        <p>
+          Email me at <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use
+          the form:
+        </p>
+        <contact-form></contact-form>
       </section>
     </main>
     <footer class="footer">&copy; YEAR Sebastian de Raadt</footer>
@@ -383,16 +389,7 @@
           pastTechColumn.style.display = "block";
           viewPastTechLink.style.display = "none";
         });
-        //resizeAllGridItems();
       });
-
-      // function resizeAllGridItems(){
-      //   console.info(`resizeAllGridItems`);
-      //   let allItems = document.getElementsByTagName("portfolio-card");
-      //   for(x=0;x<allItems.length;x++){
-      //     allItems[x].resize();
-      //   }
-      // }
 
       let portfolioCardsGrid = document.getElementById("portfolio-cards-grid");
 
