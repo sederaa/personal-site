@@ -13,7 +13,6 @@ body {
 
 h2 {
   text-transform: uppercase;
-  font-size: smaller;
 }
 
 ul {
@@ -64,21 +63,8 @@ ul {
 }
 
 /* intro */
-
-.section.section__intro {
-  height: 85vh;
-  display: flex;
-  gap: calc(var(--spacing-multiple-x) * 5);
-}
-
-.section.section__intro .section__intro-text {
-  flex: 1 1 60%;
-}
-
-.section.section__intro .section__intro-portrait {
-  flex: 1 1 40%;
-  width: 40vw;
-  height: 50vh;
+.section.section__intro .section__intro-title {
+  font-size: 4em;
 }
 
 /* tech */
@@ -104,4 +90,10 @@ ul {
 
 .footer {
   padding: var(--page-padding-y) var(--page-padding-x);
+}
+
+/* utilities */
+
+.centered {
+  text-align: center;
 }

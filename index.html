@@ -40,38 +40,53 @@
       </div>
     </header>
 
-    <main>
-      <section class="section section__intro section--odd">
-        <div class="section__intro-text">
-          <p>
-            Hi, I'm a software engineer passionate about building React-based
-            applications, ASP.NET Core APIs and micro services.
-          </p>
-          <p>
-            I have 20+ years experience building web applications of all sizes,
-            micro services, integrations, auth servers, mobile apps, and many
-            others. I have worked primarily in the freight and fintech
-            industries in recent years.
-          </p>
+    <header class="section section__intro">
+      <div style="text-align: right"><a href="#">dark/light</a></div>
+      <!--
+      <div style="width: 20vh; margin: 0 auto">
+        <div
+          style="
+            height: 20vh;
+            border-radius: 100%;
+            text-align: center;
+            background-color: grey;
+          "
+        >
+          pic
         </div>
-        <img
-          src="#"
-          class="section__intro-portrait"
-          alt="Picture of Seb de Raadt"
-        />
-      </section>
+      </div>
+      -->
+      <h1 class="section__intro-title centered">Seb de Raadt</h1>
+      <p class="centered">
+        Hi, I'm a software engineer passionate about building applications with
+        React and ASP.NET Core.
+      </p>
+      <p class="centered">
+        I have 20+ years experience building web applications of all sizes,
+        micro services, integrations, auth servers, mobile apps, and many
+        others. I have worked primarily in the freight and fintech industries in
+        recent years.
+      </p>
+      <nav class="centered">
+        <a href="#">Technologies</a> - <a href="#">Portfolio</a> -
+        <a href="#">Contact</a> - <a href="#">Resume</a> -
+        <a href="#">LinkedIn</a> - <a href="#">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
       <section class="section section__tech section--even">
-        <h1>Tech</h1>
+        <h2>Tech</h2>
 
         <tech-listing></tech-listing>
       </section>
       <section id="portfolio" class="section section--odd">
-        <h1>Portfolio</h1>
+        <h2>Portfolio</h2>
 
         <portfolio-cards-grid id="portfolio-cards-grid"></portfolio-cards-grid>
       </section>
       <section id="contact" class="section section--even">
-        <h1>Contact</h1>
+        <h2>Contact</h2>
         <p>
           Email me at <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use
           the form:
