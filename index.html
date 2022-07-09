@@ -32,6 +32,7 @@
   </head>
 
   <body>
+    <!--
     <header class="header">
       <div class="header__logo">Seb de Raadt</div>
 
@@ -39,39 +40,30 @@
         <main-menu></main-menu>
       </div>
     </header>
+-->
+    <div class="dark-light-selector"><a href="#">dark/light</a></div>
 
     <header class="section section__intro">
-      <div style="text-align: right"><a href="#">dark/light</a></div>
-      <!--
-      <div style="width: 20vh; margin: 0 auto">
-        <div
-          style="
-            height: 20vh;
-            border-radius: 100%;
-            text-align: center;
-            background-color: grey;
-          "
-        >
-          pic
-        </div>
+      <div class="section__intro-container">
+        <h1 class="section__intro-title centered">
+          <span class="section__intro-title-text"> Seb de Raadt </span>
+        </h1>
+        <p class="section__intro-text centered">
+          Hi, I'm a software engineer passionate about building applications
+          with React and ASP.NET Core.
+        </p>
+        <p class="section__intro-text centered">
+          I have 20+ years experience building web applications of all sizes,
+          APIs, micro services, integrations, an auth server, a mobile app, and
+          many others. I have worked primarily in the freight and fintech
+          industries in recent years.
+        </p>
+        <nav class="section__intro-menu centered">
+          <a href="#">Technologies</a> - <a href="#">Portfolio</a> -
+          <a href="#">Contact</a> - <a href="#">Resume</a> -
+          <a href="#">LinkedIn</a> - <a href="#">GitHub</a>
+        </nav>
       </div>
-      -->
-      <h1 class="section__intro-title centered">Seb de Raadt</h1>
-      <p class="centered">
-        Hi, I'm a software engineer passionate about building applications with
-        React and ASP.NET Core.
-      </p>
-      <p class="centered">
-        I have 20+ years experience building web applications of all sizes,
-        APIs, micro services, integrations, an auth server, a mobile app, and
-        many others. I have worked primarily in the freight and fintech
-        industries in recent years.
-      </p>
-      <nav class="centered">
-        <a href="#">Technologies</a> - <a href="#">Portfolio</a> -
-        <a href="#">Contact</a> - <a href="#">Resume</a> -
-        <a href="#">LinkedIn</a> - <a href="#">GitHub</a>
-      </nav>
     </header>
 
     <main>
@@ -101,6 +93,44 @@
       let portfolioCardsGrid = document.getElementById("portfolio-cards-grid");
 
       window.addEventListener("resize", portfolioCardsGrid.resize);
+
+      const introContainerElement = document.getElementsByClassName(
+        "section__intro-container"
+      )[0];
+      const introTitle = document.getElementsByClassName(
+        "section__intro-title"
+      )[0];
+      const introTitleOriginalOffsetTop = introTitle.offsetTop;
+      const introTitleText = document.getElementsByClassName(
+        "section__intro-title-text"
+      )[0];
+      const introTextElements = [
+        ...document.getElementsByClassName("section__intro-text"),
+      ];
+
+      window.onscroll = function () {
+        if (document.documentElement.scrollTop > introTitleOriginalOffsetTop) {
+          introContainerElement.classList.add(
+            "section__intro-container--collapsed"
+          );
+          introTitle.classList.add("section__intro-title--collapsed");
+          introTitleText.classList.add("section__intro-title-text--collapsed");
+          introTextElements.forEach((e) =>
+            e.classList.add("section__intro-text--collapsed")
+          );
+        } else {
+          introContainerElement.classList.remove(
+            "section__intro-container--collapsed"
+          );
+          introTitle.classList.remove("section__intro-title--collapsed");
+          introTitleText.classList.remove(
+            "section__intro-title-text--collapsed"
+          );
+          introTextElements.forEach((e) =>
+            e.classList.remove("section__intro-text--collapsed")
+          );
+        }
+      };
     </script>
   </body>
 </html>
