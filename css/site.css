@@ -73,9 +73,8 @@ ul {
 
 /* intro */
 .section__intro-container {
-  /* display: flex;
-  flex-direction: column; */
-  position: fixed;
+  position: sticky;
+  top: var(--page-padding-y);
 }
 
 .section__intro-container--collapsed {
