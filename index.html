@@ -100,7 +100,7 @@
       const introTitle = document.getElementsByClassName(
         "section__intro-title"
       )[0];
-      const introTitleOriginalOffsetTop = introTitle.offsetTop;
+
       const introTitleText = document.getElementsByClassName(
         "section__intro-title-text"
       )[0];
@@ -108,8 +108,16 @@
         ...document.getElementsByClassName("section__intro-text"),
       ];
 
+      const sectionTechElement =
+        document.getElementsByClassName("section__tech")[0];
+
+      const introContainerOriginalOffsetBottom =
+        introContainerElement.offsetTop + introContainerElement.offsetHeight;
+
       window.onscroll = function () {
-        if (document.documentElement.scrollTop > introTitleOriginalOffsetTop) {
+        const sectionTechOffsetDocumentTop =
+          sectionTechElement.offsetTop - document.documentElement.scrollTop;
+        if (sectionTechOffsetDocumentTop < introContainerOriginalOffsetBottom) {
           introContainerElement.classList.add(
             "section__intro-container--collapsed"
           );
