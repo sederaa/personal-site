@@ -43,22 +43,31 @@
 -->
     <div class="dark-light-selector"><a href="#">dark/light</a></div>
 
+    <!--
+  TODO:
+  - how to nicely integrate dark/light menu item when menu is at top of screen?
+      - perhaps move the menu item dom nodes into the same felx box as dark/light menu item when scrolling down. How to animate?
+        - https://medium.com/samsung-internet-dev/animating-dom-changes-33b031927e96
+  - move intro section with JS below and CSS to own web component
+  - support collapsing to hamburger on mobile
+-->
+
     <header class="section section__intro">
       <div class="section__intro-container">
-        <h1 class="section__intro-title centered">
+        <h1 class="section__intro-title">
           <span class="section__intro-title-text"> Seb de Raadt </span>
         </h1>
-        <p class="section__intro-text centered">
+        <p class="section__intro-text">
           Hi, I'm a software engineer passionate about building applications
           with React and ASP.NET Core.
         </p>
-        <p class="section__intro-text centered">
+        <p class="section__intro-text">
           I have 20+ years experience building web applications of all sizes,
           APIs, micro services, integrations, an auth server, a mobile app, and
           many others. I have worked primarily in the freight and fintech
           industries in recent years.
         </p>
-        <nav class="section__intro-menu centered">
+        <nav class="section__intro-menu">
           <a href="#">Technologies</a> - <a href="#">Portfolio</a> -
           <a href="#">Contact</a> - <a href="#">Resume</a> -
           <a href="#">LinkedIn</a> - <a href="#">GitHub</a>
@@ -107,6 +116,9 @@
       const introTextElements = [
         ...document.getElementsByClassName("section__intro-text"),
       ];
+      const introMenu = document.getElementsByClassName(
+        "section__intro-menu"
+      )[0];
 
       window.onscroll = function () {
         if (document.documentElement.scrollTop > introTitleOriginalOffsetTop) {
@@ -115,6 +127,7 @@
           );
           introTitle.classList.add("section__intro-title--collapsed");
           introTitleText.classList.add("section__intro-title-text--collapsed");
+          introMenu.classList.add("section__intro-menu--collapsed");
           introTextElements.forEach((e) =>
             e.classList.add("section__intro-text--collapsed")
           );
@@ -126,6 +139,7 @@
           introTitleText.classList.remove(
             "section__intro-title-text--collapsed"
           );
+          introMenu.classList.remove("section__intro-menu--collapsed");
           introTextElements.forEach((e) =>
             e.classList.remove("section__intro-text--collapsed")
           );
