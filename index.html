@@ -111,13 +111,16 @@
       const sectionTechElement =
         document.getElementsByClassName("section__tech")[0];
 
-      const introContainerOriginalOffsetBottom =
-        introContainerElement.offsetTop + introContainerElement.offsetHeight;
+      const mainMenuElement = document.getElementsByClassName(
+        "section__intro-menu"
+      )[0];
+      const menuOffsetBottom =
+        mainMenuElement.offsetTop + mainMenuElement.offsetHeight;
 
       window.onscroll = function () {
         const sectionTechOffsetDocumentTop =
           sectionTechElement.offsetTop - document.documentElement.scrollTop;
-        if (sectionTechOffsetDocumentTop < introContainerOriginalOffsetBottom) {
+        if (sectionTechOffsetDocumentTop < menuOffsetBottom) {
           introContainerElement.classList.add(
             "section__intro-container--collapsed"
           );
