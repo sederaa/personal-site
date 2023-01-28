@@ -78,7 +78,7 @@ ul {
 }
 
 .section__intro-container--collapsed {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
