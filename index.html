@@ -33,18 +33,17 @@
   </head>
 
   <body>
-    <!--
-    <header class="header">
+    <header id="header" class="header">
       <div class="header__logo">Seb de Raadt</div>
 
       <div class="header__menu">
         <main-menu></main-menu>
       </div>
     </header>
--->
+
     <div class="dark-light-selector"><a href="#">dark/light</a></div>
 
-    <header class="section section__intro">
+    <section class="section section__intro">
       <div class="section__intro-container">
         <h1 class="section__intro-title centered">
           <span class="section__intro-title-text"> Seb de Raadt </span>
@@ -65,7 +64,7 @@
           <a href="#">LinkedIn</a> - <a href="#">GitHub</a>
         </nav>
       </div>
-    </header>
+    </section>
 
     <main>
       <section class="section section__tech section--even">
@@ -91,56 +90,28 @@
       &copy; <current-year></current-year> Sebastian de Raadt
     </footer>
     <script type="text/javascript">
-      let portfolioCardsGrid = document.getElementById("portfolio-cards-grid");
-
-      window.addEventListener("resize", portfolioCardsGrid.resize);
-
-      const introContainerElement = document.getElementsByClassName(
-        "section__intro-container"
-      )[0];
-      const introTitle = document.getElementsByClassName(
-        "section__intro-title"
-      )[0];
-
-      const introTitleText = document.getElementsByClassName(
-        "section__intro-title-text"
-      )[0];
-      const introTextElements = [
-        ...document.getElementsByClassName("section__intro-text"),
-      ];
-
+      const headerElement = document.getElementById("header");
       const sectionTechElement =
         document.getElementsByClassName("section__tech")[0];
-
-      const mainMenuElement = document.getElementsByClassName(
-        "section__intro-menu"
-      )[0];
-      const menuOffsetBottom =
-        mainMenuElement.offsetTop + mainMenuElement.offsetHeight;
 
       window.onscroll = function () {
         const sectionTechOffsetDocumentTop =
           sectionTechElement.offsetTop - document.documentElement.scrollTop;
-        if (sectionTechOffsetDocumentTop < menuOffsetBottom) {
-          introContainerElement.classList.add(
-            "section__intro-container--collapsed"
-          );
-          introTitle.classList.add("section__intro-title--collapsed");
-          introTitleText.classList.add("section__intro-title-text--collapsed");
-          introTextElements.forEach((e) =>
-            e.classList.add("section__intro-text--collapsed")
-          );
-        } else {
-          introContainerElement.classList.remove(
-            "section__intro-container--collapsed"
-          );
-          introTitle.classList.remove("section__intro-title--collapsed");
-          introTitleText.classList.remove(
-            "section__intro-title-text--collapsed"
-          );
-          introTextElements.forEach((e) =>
-            e.classList.remove("section__intro-text--collapsed")
-          );
+        console.debug(
+          `sectionTechOffsetDocumentTop = ${sectionTechOffsetDocumentTop}.`
+        );
+        if (
+          sectionTechOffsetDocumentTop < 0 &&
+          !headerElement.classList.contains("header--visible")
+        ) {
+          console.debug(`adding .header--visible`);
+          headerElement.classList.add("header--visible");
+        } else if (
+          sectionTechOffsetDocumentTop > 0 &&
+          headerElement.classList.contains("header--visible")
+        ) {
+          console.debug(`removing .header--visible`);
+          headerElement.classList.remove("header--visible");
         }
       };
     </script>

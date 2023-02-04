@@ -29,15 +29,21 @@ ul {
 }
 
 /* header */
-/*
+
 .header {
-  height: 15vh;
+  height: 10vh;
   display: flex;
   padding: var(--page-padding-y) var(--page-padding-x);
   background-color: lightblue;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
+  display: none;
+}
+
+.header--visible {
+  display: block;
 }
 
 .header .header__logo,
@@ -49,7 +55,8 @@ ul {
   font-size: xx-large;
   white-space: nowrap;
 }
-*/
+
+/* sections */
 
 .section {
   min-height: 100vh;
@@ -74,20 +81,6 @@ ul {
 }
 
 /* intro */
-.section__intro-container {
-  position: -webkit-sticky;
-  position: sticky;
-  top: var(--page-padding-y);
-}
-
-.section__intro-container--collapsed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  z-index: 1000; /* to prevent masonry items overlapping top bar */
-}
 
 .section__intro-title {
   margin-top: 1.5em;

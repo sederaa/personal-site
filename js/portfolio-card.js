@@ -107,7 +107,7 @@ class PortfolioCard extends HTMLElement {
     const actionsContainer =
       this.shadowRoot.getElementById("actions-container");
     const url = this.getAttribute("data-url");
-    console.debug(`PortfolioCard: url = `, url);
+    //console.debug(`PortfolioCard: url = `, url);
     if (url !== undefined && url !== null) {
       const a = document.createElement("a");
       a.href = url;
@@ -116,7 +116,7 @@ class PortfolioCard extends HTMLElement {
     }
 
     const sourceUrl = this.getAttribute("data-source-url");
-    console.debug(`PortfolioCard: sourceUrl = `, sourceUrl);
+    //console.debug(`PortfolioCard: sourceUrl = `, sourceUrl);
     if (sourceUrl !== undefined && sourceUrl !== null) {
       const a = document.createElement("a");
       a.href = sourceUrl;
