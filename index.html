@@ -41,7 +41,9 @@
       </div>
     </header>
 
-    <div class="dark-light-selector"><a href="#">dark/light</a></div>
+    <div class="dark-light-selector dark-light-selector--visible">
+      <a href="#">dark/light</a>
+    </div>
 
     <section class="section section__intro">
       <div class="section__intro-container">
@@ -68,17 +70,17 @@
 
     <main>
       <section class="section section__tech section--even">
-        <h2>Tech</h2>
+        <h2><a name="tech">Tech</a></h2>
 
         <tech-listing></tech-listing>
       </section>
       <section id="portfolio" class="section section--odd">
-        <h2>Portfolio</h2>
+        <h2><a name="portfolio">Portfolio</a></h2>
 
         <portfolio-cards-grid id="portfolio-cards-grid"></portfolio-cards-grid>
       </section>
       <section id="contact" class="section section--even">
-        <h2>Contact</h2>
+        <h2><a name="contact">Contact</a></h2>
         <p>
           Email me at <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use
           the form:
@@ -93,25 +95,25 @@
       const headerElement = document.getElementById("header");
       const sectionTechElement =
         document.getElementsByClassName("section__tech")[0];
+      const darkLightSelector = document.getElementsByClassName(
+        "dark-light-selector"
+      )[0];
 
       window.onscroll = function () {
         const sectionTechOffsetDocumentTop =
           sectionTechElement.offsetTop - document.documentElement.scrollTop;
-        console.debug(
-          `sectionTechOffsetDocumentTop = ${sectionTechOffsetDocumentTop}.`
-        );
         if (
           sectionTechOffsetDocumentTop < 0 &&
           !headerElement.classList.contains("header--visible")
         ) {
-          console.debug(`adding .header--visible`);
           headerElement.classList.add("header--visible");
+          darkLightSelector.classList.remove("dark-light-selector--visible");
         } else if (
           sectionTechOffsetDocumentTop > 0 &&
           headerElement.classList.contains("header--visible")
         ) {
-          console.debug(`removing .header--visible`);
           headerElement.classList.remove("header--visible");
+          darkLightSelector.classList.add("dark-light-selector--visible");
         }
       };
     </script>

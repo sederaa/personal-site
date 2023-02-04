@@ -15,7 +15,7 @@ class MainMenu extends HTMLElement {
       height: 100%;
       position: fixed;
       left: 0;
-      top: 15vh;
+      top: 10vh;
       background-color: lightblue;
       overflow: hidden;
     
@@ -122,9 +122,9 @@ class MainMenu extends HTMLElement {
 
     <nav class="menu">
       <ul>
-        <li><a href="#">tech</a></li>
-        <li><a href="#">portfolio</a></li>
-        <li><a href="#">contact</a></li>
+        <li><a href="#tech">tech</a></li>
+        <li><a href="#portfolio">portfolio</a></li>
+        <li><a href="#contact">contact</a></li>
         <li><a href="#">resume</a></li>
         <li><a href="#">linkedin</a></li>
         <li><a href="#">github</a></li>
