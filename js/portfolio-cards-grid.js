@@ -1,7 +1,5 @@
 import { default as data } from "./portfolio-cards-data.js";
 
-// masonry ref: https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb
-
 class PortfolioCardsGrid extends HTMLElement {
   constructor() {
     super();
@@ -11,23 +9,20 @@ class PortfolioCardsGrid extends HTMLElement {
         <link href="css/assets.css" rel="stylesheet" />
         <link href="css/forms.css" rel="stylesheet" />
         <link href="css/typography.css" rel="stylesheet" />
-        <style>
-          .portfolio-card-grid {
-            display: grid;
-            grid-gap: 1em;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-auto-rows: 20px;
-          }
-          .portfolio-card {
-            
-          }
 
-          .portfolio-card__tech-icon {
-            width:1em;
+        <style>
+          .portfolio-card {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: calc(var(--spacing-multiple-x) * 5);
+          }
+          .gutter-sizer {
+            width: calc(var(--spacing-multiple-x) * 5);
           }
         </style>
         <div id="grid" class="portfolio-card-grid">
         </div>
+
       `;
   }
 
@@ -35,69 +30,32 @@ class PortfolioCardsGrid extends HTMLElement {
     //console.debug(data);
 
     const gridElement = this.shadowRoot.getElementById("grid");
-    let gridComputedStyle = window.getComputedStyle(gridElement);
-
-    let rowHeight = parseInt(
-      gridComputedStyle.getPropertyValue("grid-auto-rows")
-    );
-    let rowGap = parseInt(gridComputedStyle.getPropertyValue("grid-row-gap"));
 
     data.forEach((data) => {
       const portfolioCard = document.createElement("portfolio-card");
       portfolioCard.className = "portfolio-card";
-
-      if (data.imageUrl !== undefined) {
-        const image = document.createElement("img");
-        image.slot = "image";
-        image.src = data.imageUrl;
-        portfolioCard.appendChild(image);
-      }
-
-      const context = document.createElement("span");
-      context.slot = "context";
-      context.innerText = data.context;
-      portfolioCard.appendChild(context);
-
-      const title = document.createElement("span");
-      title.slot = "title";
-      title.innerText = data.title;
-      portfolioCard.appendChild(title);
-
-      const description = document.createElement("span");
-      description.slot = "description";
-      description.innerText = data.description;
-      portfolioCard.appendChild(description);
-
-      const techIcons = document.createElement("span");
-      techIcons.slot = "tech-icons";
-      techIcons.innerHTML = data.tech
-        .map(
-          (t) =>
-            `<img src="/img/tech-logos/${t}.svg" alt="${t} logo" class="portfolio-card__tech-icon" />`
-        )
-        .join("");
-      portfolioCard.appendChild(techIcons);
-
-      const actions = document.createElement("span");
-      actions.slot = "actions";
-      actions.innerHTML =
-        (data.url !== undefined ? `<a href="${data.url}">View Site</a>` : "") +
-        (data.sourceUrl !== undefined
-          ? `<a href="${data.sourceUrl}">View Code</a>`
-          : "");
-      portfolioCard.appendChild(actions);
+      portfolioCard.setAttribute("data-context", data.context);
+      if (data.imageUrl !== undefined)
+        portfolioCard.setAttribute("data-image-url", data.imageUrl);
+      portfolioCard.setAttribute("data-title", data.title);
+      portfolioCard.setAttribute("data-description", data.description);
+      portfolioCard.setAttribute("data-tech", JSON.stringify(data.tech));
+      if (data.url !== undefined)
+        portfolioCard.setAttribute("data-url", data.url);
+      if (data.sourceUrl !== undefined)
+        portfolioCard.setAttribute("data-source-url", data.sourceUrl);
 
       gridElement.appendChild(portfolioCard);
-      portfolioCard.resize(rowHeight, rowGap);
     });
-  }
 
-  resize() {
-    //console.info(`PortfolioCardsGrid.resize`);
-    let allItems = this.shadowRoot.getElementsByTagName("portfolio-card");
-    for (x = 0; x < allItems.length; x++) {
-      allItems[x].resize();
-    }
+    const gutterSizer = document.createElement("div");
+    gutterSizer.className = "gutter-sizer";
+    gridElement.appendChild(gutterSizer);
+
+    var msnry = new Masonry(gridElement, {
+      itemSelector: ".portfolio-card",
+      gutter: ".gutter-sizer",
+    });
   }
 }
 

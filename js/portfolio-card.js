@@ -3,97 +3,126 @@ class PortfolioCard extends HTMLElement {
     super();
     let shadowDom = this.attachShadow({ mode: "open" });
     shadowDom.innerHTML = `
-        <template id="portfolio-card-template">
-            <link href="css/sanitize.css" rel="stylesheet" />
-            <link href="css/assets.css" rel="stylesheet" />
-            <link href="css/forms.css" rel="stylesheet" />
-            <link href="css/typography.css" rel="stylesheet" />
+      <link href="css/sanitize.css" rel="stylesheet" />
+      <link href="css/assets.css" rel="stylesheet" />
+      <link href="css/forms.css" rel="stylesheet" />
+      <link href="css/typography.css" rel="stylesheet" />
 
-            <style>
-                .card {
-                    background-color: white;
-                    padding: var(--page-padding-y);
-                    border: solid 1px grey;
-                    border-radius: 3px;
-                }
+      <style>
+          .card {
+              background-color: white;
+              padding: var(--page-padding-y);
+              border: solid 1px grey;
+              border-radius: 3px;
+          }
 
-                .card__context {
-                    text-transform: uppercase;
-                    color: grey;
-                    font-size: smaller;
-                }
+          .card__image {
+          }
 
-                .card__title {
-                    font-size: larger;
-                    margin-bottom: var(--page-padding-y);
-                }
+          .card__image-img {
+            height: 200px;
+          }
 
-                .card__description {
-                }
+          .card__context {
+              text-transform: uppercase;
+              color: grey;
+              font-size: smaller;
+          }
 
-                .card__actions a {
-                    display: inline-block;
-                    background-color: grey;
-                    border-radius: 3px;
-                    padding: var(--spacing-multiple-y) var(--spacing-multiple-x);
-                    color: white;
-                    text-decoration: none;
-                }
-            </style>
-        
-            <article class="card" id="article-container">
-              <div class="card__content">
-                  <div class="card__image" style="height: 200px;">
-                      <slot name="image"><slot>
-                  </div>
-                  <div class="card__context">
-                      <slot name="context"></slot>
-                  </div>
-                  <div class="card__title">
-                      <slot name="title"></slot>
-                  </div>
-                  <div class="card_description">
-                      <slot name="description"></slot>
-                  </div>
-                  <div class="card__techs">
-                      <slot name="tech-icons"></slot>
-                  </div>
-                  <div class="card__actions">
-                      <slot name="actions"></slot>
-                  </div>
-              </div>
-            </article>
-        </template>
+          .card__title {
+              font-size: larger;
+              margin-bottom: var(--page-padding-y);
+          }
+
+          .card__description {
+          }
+
+          .card__tech-icon {
+            width: 1em;
+          }
+
+          .card__actions a {
+              display: inline-block;
+              background-color: grey;
+              border-radius: 3px;
+              padding: var(--spacing-multiple-y) var(--spacing-multiple-x);
+              color: white;
+              text-decoration: none;
+          }
+      </style>
+  
+      <article class="card" id="article-container">
+        <div class="card__content">
+            <div id="image-container" class="card__image">
+            </div>
+            <div id="context-container" class="card__context">
+            </div>
+            <div id="title-container" class="card__title">
+            </div>
+            <div id="description-container" class="card__description">
+            </div>
+            <div id="tech-container" class="card__techs">
+            </div>
+            <div id="actions-container" class="card__actions">
+            </div>
+        </div>
+      </article>
     `;
   }
 
   connectedCallback() {
-    const template = this.shadowRoot.getElementById("portfolio-card-template");
-    //console.debug(`PortfolioCard.connectedCallback: template = `, template);
-    const node = document.importNode(template.content, true);
-    this.shadowRoot.appendChild(node);
-  }
+    const imageUrl = this.getAttribute("data-image-url");
+    if (imageUrl !== undefined && imageUrl !== null) {
+      const imageContainer = this.shadowRoot.getElementById("image-container");
+      const image = document.createElement("img");
+      image.src = imageUrl;
+      image.classList.add("card__image-img");
+      imageContainer.appendChild(image);
+    }
 
-  resize(rowHeight, rowGap) {
-    //console.debug(`PortfolioCard.resize()`);
-    let item = this.shadowRoot.getElementById("article-container");
-    let itemComputedStyle = window.getComputedStyle(item);
-    let itemYPadding =
-      parseFloat(itemComputedStyle.getPropertyValue("padding-top")) +
-      parseFloat(itemComputedStyle.getPropertyValue("padding-bottom"));
-    let cardContentHeight = item
-      .querySelector(".card__content")
-      .getBoundingClientRect().height;
+    const context = this.getAttribute("data-context");
+    const contextContainer =
+      this.shadowRoot.getElementById("context-container");
+    contextContainer.innerText = context;
 
-    let rowSpan = Math.ceil(
-      (cardContentHeight + rowGap + itemYPadding) / (rowHeight + rowGap)
+    const title = this.getAttribute("data-title");
+    const titleContainer = this.shadowRoot.getElementById("title-container");
+    titleContainer.innerText = title;
+
+    const description = this.getAttribute("data-description");
+    const descriptionContainer = this.shadowRoot.getElementById(
+      "description-container"
     );
-    // let rowSpanRaw =
-    //   (cardContentHeight + rowGap + itemYPadding) / (rowHeight + rowGap);
-    // console.debug(
-    //   `portfolio-card: resize: cardContentHeight = ${cardContentHeight}, rowGap = ${rowGap}, itemYPadding = ${itemYPadding}, rowHeight = ${rowHeight}, rowGap = ${rowGap}, rowSpanRaw = ${rowSpanRaw}, rowSpan = ${rowSpan}`
-    // );
-    this.style.gridRowEnd = "span " + rowSpan;
+    descriptionContainer.innerText = description;
+
+    const tech = JSON.parse(this.getAttribute("data-tech"));
+    const techContainer = this.shadowRoot.getElementById("tech-container");
+    techContainer.innerHTML = tech
+      .map(
+        (t) =>
+          `<img src="/img/tech-logos/${t}.svg" alt="${t} logo" class="card__tech-icon" />`
+      )
+      .join("");
+
+    const actionsContainer =
+      this.shadowRoot.getElementById("actions-container");
+    const url = this.getAttribute("data-url");
+    console.debug(`PortfolioCard: url = `, url);
+    if (url !== undefined && url !== null) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.innerText = "View Site";
+      actionsContainer.appendChild(a);
+    }
+
+    const sourceUrl = this.getAttribute("data-source-url");
+    console.debug(`PortfolioCard: sourceUrl = `, sourceUrl);
+    if (sourceUrl !== undefined && sourceUrl !== null) {
+      const a = document.createElement("a");
+      a.href = sourceUrl;
+      a.innerText = "View Code";
+      actionsContainer.appendChild(a);
+    }
   }
 }
 
