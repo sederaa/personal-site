@@ -122,9 +122,9 @@ class MainMenu extends HTMLElement {
 
     <nav class="menu">
       <ul>
-        <li><a href="#tech">tech</a></li>
-        <li><a href="#portfolio">portfolio</a></li>
-        <li><a href="#contact">contact</a></li>
+        <li><a href="#tech-section">tech</a></li>
+        <li><a href="#portfolio-section">portfolio</a></li>
+        <li><a href="#contact-section">contact</a></li>
         <li><a href="#">resume</a></li>
         <li><a href="#">linkedin</a></li>
         <li><a href="#">github</a></li>

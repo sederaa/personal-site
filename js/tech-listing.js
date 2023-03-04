@@ -4,7 +4,7 @@ class TechListing extends HTMLElement {
     this.innerHTML = `
         <div class="columns">
           <div class="columns__column">
-            <h2>Proficient</h2>
+            <h3>Proficient</h3>
             <ul>
               <li>
                 <img
@@ -92,7 +92,7 @@ class TechListing extends HTMLElement {
             </ul>
           </div>
           <div class="columns__column">
-            <h2>Comfortable</h2>
+            <h3>Comfortable</h3>
             <ul>
               <li>
                 <img
@@ -185,7 +185,7 @@ class TechListing extends HTMLElement {
             </ul>
           </div>
           <div class="columns__column">
-            <h2>Exploring</h2>
+            <h3>Exploring</h3>
             <ul>
               <li>
                 <img
@@ -219,7 +219,7 @@ class TechListing extends HTMLElement {
           </div>
 
           <div id="past-tech" style="display: none" class="columns__column">
-            <h2>Past</h2>
+            <h3>Past</h3>
             <ul>
               <li>
                 <img

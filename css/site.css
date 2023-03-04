@@ -5,6 +5,12 @@
   --page-padding-x: calc(var(--spacing-multiple-x) * 10);
   --page-padding-y: calc(var(--spacing-multiple-y) * 5);
   --hamburger-line-thickness: 0.15rem;
+  --header-height: 15vh;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -36,7 +42,7 @@ ul {
 /* header */
 
 .header {
-  height: 10vh;
+  height: var(--header-height);
   display: flex;
   padding: var(--page-padding-y) var(--page-padding-x);
   background-color: lightblue;
