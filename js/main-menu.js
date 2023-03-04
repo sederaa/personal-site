@@ -77,6 +77,7 @@ class MainMenu extends HTMLElement {
     /* Toggle menu icon */
     .menu-checkbox:checked ~ nav {
       max-height: 100%;
+      overscroll-behavior: none;
     }
     .menu-checkbox:checked ~ .hamburger-label .hamburger-lines {
       background: transparent;
@@ -120,11 +121,11 @@ class MainMenu extends HTMLElement {
     <input class="menu-checkbox" type="checkbox" id="menu-checkbox"/>
     <label class="hamburger-label" for="menu-checkbox"><span class="hamburger-lines"></span></label>
 
-    <nav class="menu">
+    <nav id="menu" class="menu">
       <ul>
-        <li><a href="#tech-section">tech</a></li>
-        <li><a href="#portfolio-section">portfolio</a></li>
-        <li><a href="#contact-section">contact</a></li>
+        <li><a href="#tech-section" class="section-link">tech</a></li>
+        <li><a href="#portfolio-section" class="section-link">portfolio</a></li>
+        <li><a href="#contact-section" class="section-link">contact</a></li>
         <li><a href="#">resume</a></li>
         <li><a href="#">linkedin</a></li>
         <li><a href="#">github</a></li>
@@ -132,6 +133,19 @@ class MainMenu extends HTMLElement {
       </ul>
     </nav>
     `;
+  }
+
+  connectedCallback() {
+    // Attach event handler to menu links to close the menu on click
+    const menu = this.shadowRoot.getElementById("menu");
+    const links = menu.getElementsByClassName("section-link");
+    const menuCheckbox = this.shadowRoot.getElementById("menu-checkbox");
+    for (let index = 0; index < links.length; index++) {
+      const link = links[index];
+      link.addEventListener("click", (ev) => {
+        menuCheckbox.checked = !menuCheckbox.checked;
+      });
+    }
   }
 }
 
