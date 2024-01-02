@@ -5,7 +5,7 @@
   --page-padding-x: calc(var(--spacing-multiple-x) * 10);
   --page-padding-y: calc(var(--spacing-multiple-y) * 5);
   --hamburger-line-thickness: 0.15rem;
-  --header-height: 15vh;
+  --header-height: 11vh;
 
   font-family: "Inter", sans-serif;
 }
@@ -62,7 +62,7 @@ ul {
 }
 
 .header--visible {
-  display: block;
+  display: flex;
 }
 
 .header .header__logo,
