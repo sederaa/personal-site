@@ -6,6 +6,14 @@
   --page-padding-y: calc(var(--spacing-multiple-y) * 5);
   --hamburger-line-thickness: 0.15rem;
   --header-height: 15vh;
+
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 html {
@@ -64,6 +72,7 @@ ul {
 
 .header .header__logo {
   font-size: xx-large;
+  font-weight: 900;
   white-space: nowrap;
 }
 
@@ -104,6 +113,7 @@ ul {
 
 .section__intro-title-text {
   font-size: 2em;
+  font-weight: 900;
   transition: 0.4s;
 }
 
