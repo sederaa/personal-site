@@ -2,8 +2,8 @@ class TechListing extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
-        <div class="columns">
-          <div class="columns__column">
+        <div>
+          <div class="subsection">
             <h3>Proficient</h3>
             <ul>
               <li>
@@ -91,7 +91,7 @@ class TechListing extends HTMLElement {
               </li>
             </ul>
           </div>
-          <div class="columns__column">
+          <div class="subsection">
             <h3>Comfortable</h3>
             <ul>
               <li>
@@ -184,7 +184,7 @@ class TechListing extends HTMLElement {
               </li>
             </ul>
           </div>
-          <div class="columns__column">
+          <div class="subsection">
             <h3>Exploring</h3>
             <ul>
               <li>
@@ -218,7 +218,7 @@ class TechListing extends HTMLElement {
             </ul>
           </div>
 
-          <div id="past-tech" style="display: none" class="columns__column">
+          <div id="past-tech" style="display: none" class="subsection">
             <h3>Past</h3>
             <ul>
               <li>
@@ -304,7 +304,10 @@ class TechListing extends HTMLElement {
             </ul>
           </div>
         </div>
-        <button id="view-past-tech-btn">View past tech</button>
+        <button id="view-past-tech-btn">
+          <span id="btn-icon">+</span>
+          View past technologies
+        </button>
 `;
   }
 
