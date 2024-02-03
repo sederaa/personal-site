@@ -38,10 +38,12 @@
 
   <body>
     <header id="header" class="header">
-      <div class="header__logo">Seb de Raadt</div>
+      <div class="header__content mx-auto">
+        <div class="header__logo">Seb de Raadt</div>
 
-      <div class="header__menu">
-        <main-menu></main-menu>
+        <div class="header__menu">
+          <main-menu></main-menu>
+        </div>
       </div>
     </header>
 
@@ -49,22 +51,22 @@
       <a href="#">dark/light</a>
     </div>
 
-    <section class="section section__intro">
+    <section class="section section__intro mx-auto">
       <div class="section__intro-container">
-        <h1 class="section__intro-title centered">
+        <h1 class="section__intro-title">
           <span class="section__intro-title-text"> Seb de Raadt </span>
         </h1>
-        <p class="section__intro-text centered">
+        <p class="section__intro-text">
           Hi, I'm a software engineer passionate about building applications
           with React and ASP.NET Core.
         </p>
-        <p class="section__intro-text centered">
+        <p class="section__intro-text">
           I have 20+ years experience building web applications of all sizes,
           APIs, micro services, integrations, an auth server, a mobile app, and
-          many others. I have worked primarily in the freight and fintech
-          industries in recent years.
+          many others. I have worked primarily in the freight industry in recent
+          years.
         </p>
-        <nav class="section__intro-menu centered">
+        <nav class="section__intro-menu">
           <a href="#tech-section">Technologies</a> -
           <a href="#portfolio-section">Portfolio</a> -
           <a href="#contact-section">Contact</a> - <a href="#">Resume</a> -
@@ -75,17 +77,20 @@
     </section>
 
     <main>
-      <section id="tech-section" class="section section__tech section--even">
+      <section
+        id="tech-section"
+        class="section section__tech section--even mx-auto"
+      >
         <h2>Tech</h2>
 
         <tech-listing></tech-listing>
       </section>
-      <section id="portfolio-section" class="section section--odd">
+      <section id="portfolio-section" class="section section--odd mx-auto">
         <h2>Portfolio</h2>
 
         <portfolio-cards-grid id="portfolio-cards-grid"></portfolio-cards-grid>
       </section>
-      <section id="contact-section" class="section section--even">
+      <section id="contact-section" class="section section--even mx-auto">
         <h2>Contact</h2>
         <p>
           Email me at <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use
@@ -94,7 +99,7 @@
         <contact-form></contact-form>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer mx-auto">
       &copy; <current-year></current-year> Sebastian de Raadt
     </footer>
     <script type="text/javascript">

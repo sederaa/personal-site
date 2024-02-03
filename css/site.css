@@ -2,10 +2,11 @@
 :root {
   --spacing-multiple-x: 0.5vw;
   --spacing-multiple-y: 0.5vh;
-  --page-padding-x: calc(var(--spacing-multiple-x) * 10);
-  --page-padding-y: calc(var(--spacing-multiple-y) * 5);
+  /* --page-padding-x: calc(var(--spacing-multiple-x) * 10);
+  --page-padding-y: calc(var(--spacing-multiple-y) * 5); */
   --hamburger-line-thickness: 0.15rem;
   --header-height: 11vh;
+  --content-width: 1200px;
 
   font-family: "Inter", sans-serif;
 }
@@ -51,9 +52,6 @@ ul {
 
 .header {
   height: var(--header-height);
-  display: flex;
-  padding: var(--page-padding-y) var(--page-padding-x);
-  background-color: lightblue;
   position: fixed;
   top: 0;
   width: 100%;
@@ -62,15 +60,22 @@ ul {
 }
 
 .header--visible {
-  display: flex;
+  display: block;
 }
 
-.header .header__logo,
-.header .header__menu {
+.header__content {
+  max-width: var(--content-width);
+  height: var(--header-height);
+  display: flex;
+  background-color: lightblue;
+}
+
+.header__content .header__logo,
+.header__content .header__menu {
   flex: 1 1 auto;
 }
 
-.header .header__logo {
+.header__content .header__logo {
   font-size: xx-large;
   font-weight: 900;
   white-space: nowrap;
@@ -79,8 +84,9 @@ ul {
 /* sections */
 
 .section {
+  max-width: var(--content-width);
   min-height: 100vh;
-  padding: var(--page-padding-y) var(--page-padding-x);
+  border: solid 1px red;
 }
 
 .section--odd {
@@ -151,11 +157,16 @@ ul {
 /* footer */
 
 .footer {
-  padding: var(--page-padding-y) var(--page-padding-x);
+  max-width: var(--content-width);
 }
 
 /* utilities */
 
 .centered {
   text-align: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
