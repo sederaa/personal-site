@@ -11,9 +11,10 @@ class PortfolioCard extends HTMLElement {
       <style>
           .card {
               background-color: white;
-              padding: var(--page-padding-y);
-              border: solid 1px grey;
-              border-radius: 3px;
+              border: solid 1px var(--color-gray-200);
+              border-radius: var(--border-radius);
+              overflow: hidden; /*ensures nested elements don't overflow corners*/
+              padding-bottom: calc(var(--spacing-unit) * 3);
           }
 
           .card__image {
@@ -23,31 +24,64 @@ class PortfolioCard extends HTMLElement {
             height: 200px;
           }
 
-          .card__context {
-              text-transform: uppercase;
-              color: grey;
-              font-size: smaller;
+          .card__title {
+            padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
+              font-size: larger;
           }
 
-          .card__title {
-              font-size: larger;
-              margin-bottom: var(--page-padding-y);
+          .card__context {
+            padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
+          }
+
+          .card__context .content {
+            width: 100%;
+            display: inline-block;
+            padding: 0.6em 1.2em;
+            border-radius: 5em;
+            border: solid 2px var(--color-gray-300);
+            font-weight: 700;
+            font-size: 75%;
+            white-space: nowrap;
+            line-height: 1;
+            vertical-align: baseline;
+            text-align: center;
+            color: var(--color-gray-800);
           }
 
           .card__description {
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5);
+          }
+
+          .card__techs {
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5);
+            display: flex;
           }
 
           .card__tech-icon {
-            width: 1em;
+            height: 1em;
+            flex: 1 1 auto;
+          }
+
+          .card__actions {
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5);
+            display: flex;
+            gap: var(--spacing-unit);
           }
 
           .card__actions a {
-              display: inline-block;
-              background-color: grey;
-              border-radius: 3px;
-              padding: var(--spacing-multiple-y) var(--spacing-multiple-x);
-              color: white;
-              text-decoration: none;
+            flex: 1 1 auto;
+            display: inline-block;
+            padding: 0.6em 1.2em;
+            border-radius: 5em;
+            border: solid 2px var(--color-gray-300);
+            font-weight: 700;
+            font-size: 75%;
+            white-space: nowrap;
+            line-height: 1;
+            vertical-align: baseline;
+            text-align: center;
+            color: var(--color-gray-800);
+            text-decoration: none;
           }
       </style>
   
@@ -55,9 +89,10 @@ class PortfolioCard extends HTMLElement {
         <div class="card__content">
             <div id="image-container" class="card__image">
             </div>
-            <div id="context-container" class="card__context">
-            </div>
             <div id="title-container" class="card__title">
+            </div>
+            <div id="context-container" class="card__context">
+              <span id="context-content" class="content"></span>
             </div>
             <div id="description-container" class="card__description">
             </div>
@@ -81,8 +116,7 @@ class PortfolioCard extends HTMLElement {
     }
 
     const context = this.getAttribute("data-context");
-    const contextContainer =
-      this.shadowRoot.getElementById("context-container");
+    const contextContainer = this.shadowRoot.getElementById("context-content");
     contextContainer.innerText = context;
 
     const title = this.getAttribute("data-title");
@@ -120,8 +154,15 @@ class PortfolioCard extends HTMLElement {
     if (sourceUrl !== undefined && sourceUrl !== null) {
       const a = document.createElement("a");
       a.href = sourceUrl;
-      a.innerText = "View Code";
+      a.innerText = "< > View Code";
       actionsContainer.appendChild(a);
+    }
+
+    if (
+      (url === undefined || url === null) &&
+      (sourceUrl === undefined || sourceUrl === null)
+    ) {
+      actionsContainer.style.display = "none";
     }
   }
 }

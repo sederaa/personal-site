@@ -29,7 +29,7 @@ class MainMenu extends HTMLElement {
     
     nav a {
       display: block;
-      padding: var(--page-padding-y) var(--page-padding-x);
+      padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 10);
       color: white;
     }
     nav a:hover {
@@ -106,7 +106,7 @@ class MainMenu extends HTMLElement {
       }
     
       nav a {
-        padding: 0 calc(var(--spacing-multiple-x) * 2);
+        padding: 0 calc(var(--spacing-unit) * 2);
       }
       nav a:hover {
         background-color: transparent;

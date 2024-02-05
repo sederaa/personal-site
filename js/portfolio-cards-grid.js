@@ -12,12 +12,24 @@ class PortfolioCardsGrid extends HTMLElement {
 
         <style>
           .portfolio-card {
-            width: 100%;
-            max-width: 400px;
-            margin-bottom: calc(var(--spacing-multiple-x) * 5);
+            width: calc(33% - ((var(--spacing-unit) * 5) * 0.66));
+            margin-bottom: calc(var(--spacing-unit) * 5);
           }
+
+          @media (max-width: 950px) {
+            .portfolio-card {
+              width: calc(50% - ((var(--spacing-unit) * 5) * 0.5));
+            }
+          }
+
+          @media (max-width: 650px) {
+            .portfolio-card {
+              width: 100%;
+            }
+          }
+
           .gutter-sizer {
-            width: calc(var(--spacing-multiple-x) * 5);
+            width: calc(var(--spacing-unit) * 5);
           }
         </style>
         <div id="grid" class="portfolio-card-grid">
@@ -54,6 +66,8 @@ class PortfolioCardsGrid extends HTMLElement {
 
     var msnry = new Masonry(gridElement, {
       itemSelector: ".portfolio-card",
+      columnWidth: ".portfolio-card",
+      percentPosition: true,
       gutter: ".gutter-sizer",
     });
   }
