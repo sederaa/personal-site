@@ -8,7 +8,6 @@ class PortfolioCardsGrid extends HTMLElement {
         <link href="css/sanitize.css" rel="stylesheet" />
         <link href="css/assets.css" rel="stylesheet" />
         <link href="css/forms.css" rel="stylesheet" />
-        <link href="css/typography.css" rel="stylesheet" />
 
         <style>
           .portfolio-card {

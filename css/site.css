@@ -16,11 +16,18 @@
 
   --spacing-unit: 0.5vw;
   --hamburger-line-thickness: 0.15rem;
-  --header-height: 11vh;
+  --header-height: 5vh;
   --content-width: 1200px;
   --border-radius: calc(var(--spacing-unit) * 2);
 
   --font-size: 14pt;
+  --title-font-family: "Inter"; /*Raleway*/
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 html {
@@ -39,13 +46,22 @@ body {
 
 h2 {
   font-weight: 700;
-  font-family: "Raleway", system-ui, sans-serif;
+  font-family: var(--title-font-family), system-ui, sans-serif;
   font-size: calc(var(--font-size) * 2);
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+code,
+kbd,
+samp,
+pre {
+  /* see https://github.com/system-fonts/modern-font-stacks?tab=readme-ov-file#monospace-code */
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
 }
 
 /* dark/light selector */
@@ -64,12 +80,14 @@ ul {
 /* header */
 
 .header {
-  height: var(--header-height);
+  /*height: var(--header-height);*/
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  display: none;
+  backdrop-filter: blur(6px);
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 5);
+  border-bottom: solid var(--color-gray-200) 0.5px;
 }
 
 .header--visible {
@@ -78,9 +96,8 @@ ul {
 
 .header__content {
   max-width: var(--content-width);
-  height: var(--header-height);
+  /*height: var(--header-height);*/
   display: flex;
-  background-color: lightblue;
 }
 
 .header__content .header__logo,
@@ -98,7 +115,6 @@ ul {
 
 .section {
   max-width: var(--content-width);
-  min-height: 100vh;
   padding: calc(var(--spacing-unit) * 5);
   margin-bottom: calc(var(--spacing-unit) * 10);
   /* border: solid 1px red; */
@@ -119,7 +135,7 @@ ul {
   font-size: 2em;
   font-weight: 900;
   transition: 0.4s;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--title-font-family), sans-serif;
 }
 
 .section__intro-title-text--collapsed {
@@ -141,7 +157,7 @@ ul {
 }
 
 .section__tech .subsection {
-  border-bottom: solid var(--color-gray-200) 1px;
+  border-bottom: solid var(--color-gray-200) 0.5px;
   padding: calc(var(--spacing-unit) * 2) 0;
 }
 

@@ -7,7 +7,6 @@ class MainMenu extends HTMLElement {
     <link href="css/sanitize.css" rel="stylesheet" />
     <link href="css/assets.css" rel="stylesheet" />
     <link href="css/forms.css" rel="stylesheet" />
-    <link href="css/typography.css" rel="stylesheet" />
 
     <style>
     nav {
@@ -16,7 +15,7 @@ class MainMenu extends HTMLElement {
       position: fixed;
       left: 0;
       top: 10vh;
-      background-color: lightblue;
+      /*background-color: lightblue;*/
       overflow: hidden;
     
       max-height: 0;
@@ -30,7 +29,7 @@ class MainMenu extends HTMLElement {
     nav a {
       display: block;
       padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 10);
-      color: white;
+      color: black;
     }
     nav a:hover {
       background-color: gray;
