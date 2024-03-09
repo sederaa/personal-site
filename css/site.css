@@ -21,14 +21,6 @@
   --border-radius: calc(var(--spacing-unit) * 2);
 
   --font-size: 14pt;
-
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: "Inter var", sans-serif;
-  }
 }
 
 html {
@@ -37,11 +29,18 @@ html {
 }
 
 body {
+  font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 300;
   font-size: var(--font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h2 {
-  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Raleway", system-ui, sans-serif;
+  font-size: calc(var(--font-size) * 2);
 }
 
 ul {
@@ -120,6 +119,7 @@ ul {
   font-size: 2em;
   font-weight: 900;
   transition: 0.4s;
+  font-family: "Raleway", sans-serif;
 }
 
 .section__intro-title-text--collapsed {
