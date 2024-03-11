@@ -22,6 +22,7 @@
 
   --font-size: 14pt;
   --title-font-family: "Inter"; /*Raleway*/
+  --text-color: var(--color-gray-800);
 }
 
 @supports (font-variation-settings: normal) {
@@ -42,6 +43,7 @@ body {
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
 }
 
 h2 {
@@ -107,7 +109,7 @@ pre {
 
 .header__content .header__logo {
   font-size: xx-large;
-  font-weight: 900;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -116,14 +118,14 @@ pre {
 .section {
   max-width: var(--content-width);
   padding: calc(var(--spacing-unit) * 5);
-  margin-bottom: calc(var(--spacing-unit) * 10);
+  margin-bottom: calc(var(--spacing-unit) * 20);
   /* border: solid 1px red; */
 }
 
 /* intro */
 
 .section__intro-title {
-  margin-top: 1.5em;
+  margin-top: calc(var(--spacing-unit) * 20);
 }
 
 .section__intro-title--collapsed {
@@ -132,8 +134,8 @@ pre {
 }
 
 .section__intro-title-text {
-  font-size: 2em;
-  font-weight: 900;
+  font-size: calc(var(--font-size) * 3);
+  font-weight: 700;
   transition: 0.4s;
   font-family: var(--title-font-family), sans-serif;
 }
@@ -148,6 +150,22 @@ pre {
 
 .section__intro-menu {
   transition: 0.4s;
+}
+
+.section__intro-menu a {
+  text-decoration: none;
+  background-color: var(--color-gray-300);
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  border-radius: 5em;
+  font-weight: 700;
+  font-size: 85%;
+  white-space: nowrap;
+  line-height: 1;
+  vertical-align: baseline;
+  text-align: center;
+  color: var(--text-color);
+  margin-right: var(--spacing-unit);
 }
 
 /* tech */

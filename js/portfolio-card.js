@@ -24,8 +24,8 @@ class PortfolioCard extends HTMLElement {
           }
 
           .card__title {
+            margin: 0;
             padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
-              font-size: larger;
           }
 
           .card__context {
@@ -88,8 +88,8 @@ class PortfolioCard extends HTMLElement {
         <div class="card__content">
             <div id="image-container" class="card__image">
             </div>
-            <div id="title-container" class="card__title">
-            </div>
+            <h3 id="title-container" class="card__title">
+            </h3>
             <div id="context-container" class="card__context">
               <span id="context-content" class="content"></span>
             </div>
