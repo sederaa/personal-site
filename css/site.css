@@ -16,7 +16,7 @@
 
   --spacing-unit: 0.5vw;
   --hamburger-line-thickness: 0.15rem;
-  --header-height: 5vh;
+  --header-height: 70px;
   --content-width: 1200px;
   --border-radius: calc(var(--spacing-unit) * 2);
 
@@ -82,12 +82,12 @@ pre {
 /* header */
 
 .header {
-  /*height: var(--header-height);*/
+  height: var(--header-height);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  backdrop-filter: blur(6px);
+  background-color: white;
   padding: var(--spacing-unit) calc(var(--spacing-unit) * 5);
   border-bottom: solid var(--color-gray-200) 0.5px;
 }
@@ -98,7 +98,7 @@ pre {
 
 .header__content {
   max-width: var(--content-width);
-  /*height: var(--header-height);*/
+  height: 100%;
   display: flex;
 }
 
@@ -108,9 +108,13 @@ pre {
 }
 
 .header__content .header__logo {
-  font-size: xx-large;
+  font-size: calc(var(--font-size) * 2);
   font-weight: 700;
   white-space: nowrap;
+  /*center text vertically*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* sections */

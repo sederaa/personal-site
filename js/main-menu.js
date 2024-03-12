@@ -9,13 +9,21 @@ class MainMenu extends HTMLElement {
     <link href="css/forms.css" rel="stylesheet" />
 
     <style>
+    .main-menu-wrapper {
+      height: 100%;
+      /*align hamburger lines right*/
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+    
+    }
+
     nav {
       width: 100%;
-      height: 100%;
       position: fixed;
       left: 0;
-      top: 10vh;
-      /*background-color: lightblue;*/
+      top: var(--header-height);
+      background-color: white;
       overflow: hidden;
     
       max-height: 0;
@@ -29,7 +37,8 @@ class MainMenu extends HTMLElement {
     nav a {
       display: block;
       padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 10);
-      color: black;
+      color: var(--text-color);
+      text-decoration: none;
     }
     nav a:hover {
       background-color: gray;
@@ -38,14 +47,16 @@ class MainMenu extends HTMLElement {
     /* Menu Icon */
     .hamburger-label {
       cursor: pointer;
-      padding-top: calc(var(--hamburger-line-thickness) * 2.5);
       height: 100%;
-      display: inline-block;
       float: right;
+      /*center hamburger lines vertically*/
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     
     .hamburger-lines {
-      background: white;
+      background: var(--color-gray-800);
       display: block;
       height: var(--hamburger-line-thickness);
       position: relative;
@@ -54,7 +65,7 @@ class MainMenu extends HTMLElement {
     
     .hamburger-lines::before,
     .hamburger-lines::after {
-      background: white;
+      background: var(--color-gray-800);
       content: "";
       display: block;
       height: 100%;
@@ -91,6 +102,12 @@ class MainMenu extends HTMLElement {
     }
     
     @media (min-width: 768px) {
+      .main-menu-wrapper {
+        /*center menu items vertically*/
+        flex-direction: column;
+        justify-content: center;
+      }
+  
       nav {
         max-height: unset;
         position: relative;
@@ -117,20 +134,22 @@ class MainMenu extends HTMLElement {
     }    
     </style>
     
-    <input class="menu-checkbox" type="checkbox" id="menu-checkbox"/>
-    <label class="hamburger-label" for="menu-checkbox"><span class="hamburger-lines"></span></label>
+    <div class="main-menu-wrapper">
+      <input class="menu-checkbox" type="checkbox" id="menu-checkbox"/>
+      <label class="hamburger-label" for="menu-checkbox"><span class="hamburger-lines"></span></label>
 
-    <nav id="menu" class="menu">
-      <ul>
-        <li><a href="#tech-section" class="section-link">tech</a></li>
-        <li><a href="#portfolio-section" class="section-link">portfolio</a></li>
-        <li><a href="#contact-section" class="section-link">contact</a></li>
-        <li><a href="#">resume</a></li>
-        <li><a href="#">linkedin</a></li>
-        <li><a href="#">github</a></li>
-        <li><a href="#">dark/light</a></li>
-      </ul>
-    </nav>
+      <nav id="menu" class="menu">
+        <ul>
+          <li><a href="#tech-section" class="section-link">tech</a></li>
+          <li><a href="#portfolio-section" class="section-link">portfolio</a></li>
+          <li><a href="#contact-section" class="section-link">contact</a></li>
+          <li><a href="#">resume</a></li>
+          <li><a href="#">linkedin</a></li>
+          <li><a href="#">github</a></li>
+          <li><a href="#">dark/light</a></li>
+        </ul>
+      </nav>
+    </div>
     `;
   }
 
