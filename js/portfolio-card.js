@@ -30,21 +30,9 @@ class PortfolioCard extends HTMLElement {
 
           .card__context {
             padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
-          }
-
-          .card__context .content {
-            width: 100%;
-            display: inline-block;
-            padding: 0.6em 1.2em;
-            border-radius: 5em;
-            border: solid 2px var(--color-gray-300);
-            font-weight: 700;
             font-size: 75%;
-            white-space: nowrap;
-            line-height: 1;
-            vertical-align: baseline;
-            text-align: center;
             color: var(--color-gray-800);
+            text-transform: uppercase;
           }
 
           .card__description {
@@ -67,21 +55,6 @@ class PortfolioCard extends HTMLElement {
             gap: var(--spacing-unit);
           }
 
-          .card__actions a {
-            flex: 1 1 auto;
-            display: inline-block;
-            padding: 0.6em 1.2em;
-            border-radius: 5em;
-            border: solid 2px var(--color-gray-300);
-            font-weight: 700;
-            font-size: 75%;
-            white-space: nowrap;
-            line-height: 1;
-            vertical-align: baseline;
-            text-align: center;
-            color: var(--color-gray-800);
-            text-decoration: none;
-          }
       </style>
   
       <article class="card" id="article-container">
@@ -91,7 +64,6 @@ class PortfolioCard extends HTMLElement {
             <h3 id="title-container" class="card__title">
             </h3>
             <div id="context-container" class="card__context">
-              <span id="context-content" class="content"></span>
             </div>
             <div id="description-container" class="card__description">
             </div>
@@ -115,7 +87,8 @@ class PortfolioCard extends HTMLElement {
     }
 
     const context = this.getAttribute("data-context");
-    const contextContainer = this.shadowRoot.getElementById("context-content");
+    const contextContainer =
+      this.shadowRoot.getElementById("context-container");
     contextContainer.innerText = context;
 
     const title = this.getAttribute("data-title");
