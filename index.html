@@ -38,6 +38,7 @@
     <script src="js/contact-form.js" defer></script>
     <script src="js/current-year.js" defer></script>
     <script src="js/tech-listing.js" defer></script>
+    <script src="js/standard-button.js" defer></script>
     <script src="lib/masonry/masonry.pkgd.min.js"></script>
   </head>
 
@@ -73,9 +74,24 @@
         <p>I live in Auckland, New Zealand 🇳🇿</p>
 
         <nav class="section__intro-menu">
-          <a href="#portfolio-section">See my work</a>
-          <a href="#">Download my resume</a>
-          <a href="#contact-section">Get in touch</a>
+          <standard-button
+            as="a"
+            iconImageUrl="img/icons/book.svg"
+            href="#portfolio-section"
+            >See my work</standard-button
+          >
+          <standard-button
+            as="a"
+            iconImageUrl="img/icons/file-arrow-down.svg"
+            href="alert('to do')"
+            >Download my resume</standard-button
+          >
+          <standard-button
+            as="a"
+            iconImageUrl="img/icons/phone.svg"
+            href="#contact-section"
+            >Get in touch</standard-button
+          >
         </nav>
       </div>
     </section>

@@ -304,10 +304,10 @@ class TechListing extends HTMLElement {
             </ul>
           </div>
         </div>
-        <button id="view-past-tech-btn">
-          <span id="btn-icon">+</span>
-          View past technologies
-        </button>
+        <div class="view-past-tech-btn-container">
+          <standard-button id="view-past-tech-btn" 
+            iconImageUrl="img/icons/eye.svg">View past technologies</standard-button>
+        </div>
 `;
   }
 

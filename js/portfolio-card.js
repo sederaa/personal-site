@@ -142,19 +142,25 @@ class PortfolioCard extends HTMLElement {
     const url = this.getAttribute("data-url");
     //console.debug(`PortfolioCard: url = `, url);
     if (url !== undefined && url !== null) {
-      const a = document.createElement("a");
-      a.href = url;
-      a.innerText = "View Site";
-      actionsContainer.appendChild(a);
+      const viewSiteButton = document.createElement("standard-button");
+      viewSiteButton.innerText = "Site";
+      viewSiteButton.setAttribute("as", "a");
+      viewSiteButton.setAttribute("href", url);
+      viewSiteButton.setAttribute("iconImageUrl", "img/icons/globe.svg");
+      viewSiteButton.setAttribute("compact", "true");
+      actionsContainer.appendChild(viewSiteButton);
     }
 
     const sourceUrl = this.getAttribute("data-source-url");
     //console.debug(`PortfolioCard: sourceUrl = `, sourceUrl);
     if (sourceUrl !== undefined && sourceUrl !== null) {
-      const a = document.createElement("a");
-      a.href = sourceUrl;
-      a.innerText = "< > View Code";
-      actionsContainer.appendChild(a);
+      const viewCodeButton = document.createElement("standard-button");
+      viewCodeButton.innerText = "Code";
+      viewCodeButton.setAttribute("as", "a");
+      viewCodeButton.setAttribute("href", url);
+      viewCodeButton.setAttribute("iconImageUrl", "img/icons/code.svg");
+      viewCodeButton.setAttribute("compact", "true");
+      actionsContainer.appendChild(viewCodeButton);
     }
 
     if (
