@@ -9,44 +9,41 @@ class ContactForm extends HTMLElement {
       <link href="css/forms.css" rel="stylesheet" />
   
       <style>
-      .contact-form__fields {
-        list-style-type: none;
-        padding:  0;
-      }
-      .contact-form__label {
-          display: block;
-      }
-      .contact-form__field {
-          background-color: white;
-          border: solid 1px grey;
-      }
-      .contact-form__button {
-          border: solid 1px grey;
-      }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 4);
+        }
+        .fields {
+            display: flex;
+            flex-direction: row;
+            gap: calc(var(--spacing-unit) * 4);
+        }
+        .fields > * {
+            flex: 1 1 auto;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            border-radius: calc(var(--border-radius) * 0.25);
+            border: solid 2px var(--color-gray-200);
+            padding: calc(var(--spacing-unit) * 2);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 0;
+            border-color: var(--color-highlight);
+        }
       </style>
-      
+      <!-- form validation and animation of border colour: https://blog.logrocket.com/style-forms-css/ -->
       <form class="contact-form">
-        <ul class="contact-form__fields">
-            <li>
-                <label for="name" class="contact-form__label">Name</label>
-                <input type="text" id="name" name="name" maxlength="100" autocomplete="name" class="contact-form__field" />
-            </li>
-            <li>
-                <label for="email_address" class="contact-form__label">Email Address</label>
-                <input type="email" id="email_address" name="email_address" maxlength="100" autocomplete="email" class="contact-form__field" />
-            </li>
-            <li>
-                <label for="subject" class="contact-form__label">Subject</label>
-                <input type="text" id="subject" name="subject" maxlength="100" autocomplete="subject" class="contact-form__field" />
-            </li>
-            <li>
-                <label for="message" class="contact-form__label">Message</label>
-                <textarea id="message" name="message" maxlength="100" autocomplete="message" class="contact-form__field"></textarea>
-            </li>
-            <li>
-                <button type="submit" class="contact-form__button">Send Message</button>
-            </li>
-        </ul>
+        <div class="fields">
+            <input type="text" id="name" name="name" maxlength="100" autocomplete="name" placeholder="Name" />
+            <input type="email" id="email_address" name="email_address" maxlength="100" autocomplete="email" placeholder="Email address" />
+        </div>
+        <textarea id="message" name="message" maxlength="100" autocomplete="message" placeholder="Your message"></textarea>
+        <div>
+            <standard-button type="submit">Send Message</standard-button>
+        </div>
       </form>
       `;
   }

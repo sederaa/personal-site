@@ -119,18 +119,18 @@ class MainMenu extends HTMLElement {
     
       nav ul {
         display: flex;
+        gap: calc(var(--spacing-unit) * 4);
         justify-content: flex-end;
       }
     
       nav a {
-        padding: 0 calc(var(--spacing-unit) * 2);
+        padding: calc(var(--spacing-unit) * 1) 0;
         text-shadow: none;
-        transition: all 0.5s ease-out;
+        transition: all 0.2s ease-out;
       }
       nav a:hover {
         background-color: transparent;
-        background-color: transparent;
-        text-shadow: 0 0 1px currentColor;
+        color: var(--color-highlight);
       }
 
       nav a span.path {
