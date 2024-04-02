@@ -1,17 +1,23 @@
 class StandardButton extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
     this.element = null;
   }
 
   connectedCallback() {
     const label = this.textContent;
-    const as = this.getAttribute("as");
-    this.element = document.createElement(as ?? "button");
+    this.innerHTML = null;
+    const as = this.getAttribute("as") ?? "button";
+    this.element = document.createElement(as);
+
+    this.element.classList.add("standard-button");
 
     if (as === "a" && this.getAttribute("href")) {
       this.element.href = this.getAttribute("href");
+    }
+
+    if (as === "button" && this.getAttribute("type")) {
+      this.element.type = this.getAttribute("type");
     }
 
     const iconImageUrl = this.getAttribute("iconImageUrl");
@@ -30,11 +36,7 @@ class StandardButton extends HTMLElement {
       this.element.classList.add("compact");
     }
 
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "css/standard-button.css");
-
-    this.shadowRoot.append(linkElem, this.element);
+    this.appendChild(this.element);
   }
 
   addEventListener(type, listener, options) {

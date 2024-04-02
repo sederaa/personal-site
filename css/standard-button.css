@@ -1,8 +1,13 @@
-a,
-button {
+a.standard-button,
+button.standard-button {
   text-decoration: none;
   background-color: white;
   padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 6);
+
+  .compact {
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+  }
+
   border: solid 1px var(--color-gray-300);
   border-radius: 5em;
   font-weight: 700;
@@ -16,14 +21,9 @@ button {
   cursor: pointer;
   display: inline-flex;
   gap: calc(var(--spacing-unit) * 3);
-}
 
-a.compact,
-button.compact {
-  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
-}
-
-.icon {
-  width: 1.1em;
-  height: 1.1em;
+  .icon {
+    width: 1.1em;
+    height: 1.1em;
+  }
 }
