@@ -179,18 +179,19 @@
         const myForm = event.target;
         const formData = new FormData(myForm);
 
+        const contactSectionContent = document.querySelector(
+          "#contact-section #content"
+        );
+        // Set the height of the div to its current computed height
+        contactSectionContent.style.height = `${contactSectionContent.offsetHeight}px`;
+        contactSectionContent.innerHTML = "<p>Sending...</p>";
+
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(formData).toString(),
         })
           .then(() => {
-            console.log("Form successfully submitted");
-            const contactSectionContent = document.querySelector(
-              "#contact-section #content"
-            );
-            // Set the height of the div to its current computed height
-            contactSectionContent.style.height = `${contactSectionContent.offsetHeight}px`;
             contactSectionContent.innerHTML =
               "<p>Thanks for your message. I'll be in touch soon.</p>";
           })
