@@ -120,44 +120,46 @@
       </div>
       <section id="contact-section" class="section mx-auto">
         <h2>Get in touch</h2>
-        <p>
-          If you're interested in working together, email me at
-          <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use the form:
-        </p>
-        <form class="contact-form" name="contact-form" method="POST" netlify>
-          <div class="fields">
-            <input
-              type="text"
-              id="name"
-              name="name"
+        <div id="content">
+          <p>
+            If you're interested in working together, email me at
+            <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use the form:
+          </p>
+          <form class="contact-form" name="contact-form" method="POST" netlify>
+            <div class="fields">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                maxlength="100"
+                autocomplete="name"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                id="email_address"
+                name="email_address"
+                maxlength="100"
+                autocomplete="email"
+                placeholder="Email address"
+                required="Email address is required"
+              />
+            </div>
+            <textarea
+              id="message"
+              name="message"
               maxlength="100"
-              autocomplete="name"
-              placeholder="Name"
-              required
-            />
-            <input
-              type="email"
-              id="email_address"
-              name="email_address"
-              maxlength="100"
-              autocomplete="email"
-              placeholder="Email address"
-              required="Email address is required"
-            />
-          </div>
-          <textarea
-            id="message"
-            name="message"
-            maxlength="100"
-            autocomplete="message"
-            placeholder="Your message"
-          ></textarea>
-          <div>
-            <standard-button type="submit" id="send-message-btn"
-              >Send Message</standard-button
-            >
-          </div>
-        </form>
+              autocomplete="message"
+              placeholder="Your message"
+            ></textarea>
+            <div>
+              <standard-button type="submit" id="send-message-btn"
+                >Send Message</standard-button
+              >
+            </div>
+          </form>
+        </div>
       </section>
     </main>
     <footer class="section footer mx-auto">
@@ -169,6 +171,30 @@
 
       sendButton.addEventListener("click", (event) => {
         form.classList.add("submitted");
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const myForm = event.target;
+        const formData = new FormData(myForm);
+
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then(() => {
+            console.log("Form successfully submitted");
+            const contactSectionContent = document.querySelector(
+              "#contact-section #content"
+            );
+            // Set the height of the div to its current computed height
+            contactSectionContent.style.height = `${contactSectionContent.offsetHeight}px`;
+            contactSectionContent.innerHTML =
+              "<p>Thanks for your message. I'll be in touch soon.</p>";
+          })
+          .catch((error) => alert(error));
       });
 
       /*
