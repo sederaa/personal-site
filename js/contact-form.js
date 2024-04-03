@@ -54,7 +54,7 @@ class ContactForm extends HTMLElement {
         }
         
       </style>
-      <form class="contact-form" method="GET" action="/">
+      <form class="contact-form" name="contact-form" method="POST" netlify>
         <div class="fields">
             <input type="text" id="name" name="name" maxlength="100" autocomplete="name" placeholder="Name" required />
             <input type="email" id="email_address" name="email_address" maxlength="100" autocomplete="email" placeholder="Email address" required="Email address is required" />
