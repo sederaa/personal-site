@@ -217,6 +217,51 @@ pre {
   margin-top: calc(var(--spacing-unit) * 4);
 }
 
+/* contact form */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 4);
+
+  .fields {
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--spacing-unit) * 4);
+  }
+  .fields > * {
+    flex: 1 1 auto;
+  }
+
+  input,
+  textarea {
+    border-radius: calc(var(--border-radius) * 0.25);
+    border: solid 2px var(--color-gray-200);
+    padding: calc(var(--spacing-unit) * 2);
+    font-size: 85%;
+
+    &:focus {
+      outline: 0;
+      border-color: var(--color-highlight);
+    }
+  }
+
+  textarea {
+    min-height: 200px;
+  }
+
+  &.submitted {
+    input,
+    textarea {
+      &:required {
+        &:invalid {
+          border-color: red;
+        }
+      }
+    }
+  }
+}
+
 /* footer */
 .footer {
   margin-bottom: 0;

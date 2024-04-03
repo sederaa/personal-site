@@ -124,13 +124,53 @@
           If you're interested in working together, email me at
           <a href="mailto:seb@dfd.co.nz">seb@dfd.co.nz</a> or use the form:
         </p>
-        <contact-form></contact-form>
+        <form class="contact-form" name="contact-form" method="POST" netlify>
+          <div class="fields">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              maxlength="100"
+              autocomplete="name"
+              placeholder="Name"
+              required
+            />
+            <input
+              type="email"
+              id="email_address"
+              name="email_address"
+              maxlength="100"
+              autocomplete="email"
+              placeholder="Email address"
+              required="Email address is required"
+            />
+          </div>
+          <textarea
+            id="message"
+            name="message"
+            maxlength="100"
+            autocomplete="message"
+            placeholder="Your message"
+          ></textarea>
+          <div>
+            <standard-button type="submit" id="send-message-btn"
+              >Send Message</standard-button
+            >
+          </div>
+        </form>
       </section>
     </main>
     <footer class="section footer mx-auto">
       &copy; <current-year></current-year> Sebastian de Raadt
     </footer>
     <script type="text/javascript">
+      const form = document.querySelector("form");
+      const sendButton = document.getElementById("send-message-btn");
+
+      sendButton.addEventListener("click", (event) => {
+        form.classList.add("submitted");
+      });
+
       /*
       const headerElement = document.getElementById("header");
       const sectionIntroMenuElement = document.getElementsByClassName(
