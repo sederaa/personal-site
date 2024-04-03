@@ -6,6 +6,7 @@ class PortfolioCard extends HTMLElement {
       <link href="css/sanitize.css" rel="stylesheet" />
       <link href="css/assets.css" rel="stylesheet" />
       <link href="css/forms.css" rel="stylesheet" />
+      <link href="css/standard-button.css" rel="stylesheet" />
 
       <style>
           .card {
