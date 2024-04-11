@@ -169,6 +169,34 @@ pre {
   margin-right: var(--spacing-unit);
 }
 
+/* employers */
+.section__employers {
+  & .employer-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing-unit) * 4);
+  }
+  & .employer-logos__logo {
+    width: 250px;
+    align-self: center;
+    text-align: center;
+
+    img[src$=".svg"] {
+      width: 250px;
+    }
+  }
+  & .employer-logos__logo.tab img {
+    height: 80px;
+  }
+  & .employer-logos__logo.fnz img {
+    height: 60px;
+  }
+  & .more {
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 6);
+  }
+}
+
 /* tech */
 
 .section__tech {

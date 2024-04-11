@@ -53,50 +53,105 @@
       </div>
     </header>
 
-    <section class="section section__intro mx-auto">
-      <div class="section__intro-container">
-        <h1 class="section__intro-title">
-          <span class="section__intro-title-text"
-            >Hi, I'm Seb de Raadt 👋
-          </span>
-        </h1>
-        <p>
-          I'm a full-stack software developer passionate about building
-          applications with React, ASP.NET Core and many other
-          <a href="#tech-section">technologies</a>.
-        </p>
-        <p>
-          I have 20+ years experience building web applications of all sizes,
-          APIs, micro services, integrations, an auth server, a mobile app, and
-          many others. In recent years I have primarily worked in the freight
-          industry.
-        </p>
-        <p>I live in Auckland, New Zealand 🇳🇿</p>
-
-        <nav class="section__intro-menu">
-          <standard-button
-            as="a"
-            iconImageUrl="img/icons/book.svg"
-            href="#portfolio-section"
-            >See my work</standard-button
-          >
-          <standard-button
-            as="a"
-            iconImageUrl="img/icons/file-arrow-down.svg"
-            href="alert('to do')"
-            >Download my resume</standard-button
-          >
-          <standard-button
-            as="a"
-            iconImageUrl="img/icons/phone.svg"
-            href="#contact-section"
-            >Get in touch</standard-button
-          >
-        </nav>
-      </div>
-    </section>
-
     <main>
+      <section class="section section__intro mx-auto">
+        <div class="section__intro-container">
+          <h1 class="section__intro-title">
+            <span class="section__intro-title-text"
+              >Hi, I'm Seb de Raadt 👋
+            </span>
+          </h1>
+          <p>
+            I'm a full-stack software developer passionate about building
+            applications with React, ASP.NET Core and many other
+            <a href="#tech-section">technologies</a>.
+          </p>
+          <p>
+            I have 20+ years experience building web applications of all sizes,
+            APIs, micro services, integrations, an auth server, a mobile app,
+            and many others. In recent years I have primarily worked in the
+            freight industry.
+          </p>
+          <p>I live in Auckland, New Zealand 🇳🇿</p>
+
+          <nav class="section__intro-menu">
+            <standard-button
+              as="a"
+              iconImageUrl="img/icons/book.svg"
+              href="#portfolio-section"
+              >See my work</standard-button
+            >
+            <standard-button
+              as="a"
+              iconImageUrl="img/icons/file-arrow-down.svg"
+              href="alert('to do')"
+              >Download my resume</standard-button
+            >
+            <standard-button
+              as="a"
+              iconImageUrl="img/icons/phone.svg"
+              href="#contact-section"
+              >Get in touch</standard-button
+            >
+          </nav>
+        </div>
+      </section>
+
+      <div style="background-color: var(--color-gray-100); width: 100%">
+        <section
+          id="employers-section"
+          class="section section__employers mx-auto"
+        >
+          <h2>Employers</h2>
+
+          <ul class="employer-logos">
+            <li class="employer-logos__logo trademe">
+              <a
+                href="https://www.trademe.co.nz/"
+                target="_blank"
+                rel="noopener"
+              >
+                <img src="/img/employers/trademe.png" alt="TradeMe logo" />
+              </a>
+            </li>
+            <li class="employer-logos__logo anz">
+              <a href="https://www.anz.co.nz/" target="_blank" rel="noopener">
+                <img src="/img/employers/anz.png" alt="ANZ logo" />
+              </a>
+            </li>
+            <li class="employer-logos__logo eagle">
+              <a href="https://www.eagle.co.nz/" target="_blank" rel="noopener">
+                <img src="/img/employers/eagle_lightbg.png" alt="Eagle logo" />
+              </a>
+            </li>
+            <li class="employer-logos__logo gosweetspot">
+              <a href="https://gosweetspot.com" target="_blank" rel="noopener">
+                <img
+                  src="/img/employers/gosweetspot.svg"
+                  alt="GoSweetSpot logo"
+                />
+              </a>
+            </li>
+            <li class="employer-logos__logo fnz">
+              <a href="https://www.fnz.co.nz/" target="_blank" rel="noopener">
+                <img src="/img/employers/fnz_lightbg.svg" alt="FNZ logo" />
+              </a>
+            </li>
+            <li class="employer-logos__logo tab">
+              <a href="https://tabnz.org" target="_blank" rel="noopener">
+                <img src="/img/employers/tab_lightbg.svg" alt="TAB logo" />
+              </a>
+            </li>
+            <li class="employer-logos__logo isac">
+              <a href="https://isac.co.nz" target="_blank" rel="noopener">
+                <img src="/img/employers/isac.webp" alt="ISAC logo" />
+              </a>
+            </li>
+          </ul>
+          <p class="more">+ several more</p>
+        </section>
+      </div>
+
       <section
         id="tech-section"
         class="section section__tech mx-auto bg-secondary"
@@ -105,6 +160,7 @@
 
         <tech-listing></tech-listing>
       </section>
+
       <div style="background-color: var(--color-gray-100); width: 100%">
         <section
           id="portfolio-section"
@@ -196,35 +252,6 @@
           })
           .catch((error) => alert(error));
       });
-
-      /*
-      const headerElement = document.getElementById("header");
-      const sectionIntroMenuElement = document.getElementsByClassName(
-        "section__intro-menu"
-      )[0];
-      const darkLightSelector = document.getElementsByClassName(
-        "dark-light-selector"
-      )[0];
-
-      window.onscroll = function () {
-        const sectionIntroMenuElementOffsetDocumentTop =
-          sectionIntroMenuElement.offsetTop -
-          document.documentElement.scrollTop;
-        if (
-          sectionIntroMenuElementOffsetDocumentTop < 0 &&
-          !headerElement.classList.contains("header--visible")
-        ) {
-          headerElement.classList.add("header--visible");
-          darkLightSelector.classList.remove("dark-light-selector--visible");
-        } else if (
-          sectionIntroMenuElementOffsetDocumentTop > 0 &&
-          headerElement.classList.contains("header--visible")
-        ) {
-          headerElement.classList.remove("header--visible");
-          darkLightSelector.classList.add("dark-light-selector--visible");
-        }
-      };
-      */
     </script>
   </body>
 </html>
