@@ -22,7 +22,7 @@
   --border-radius: calc(var(--spacing-unit) * 2);
 
   --font-size: 14pt;
-  --title-font-family: "Inter"; /*Raleway*/
+  --title-font-family: "Inter";
   --text-color: var(--color-gray-800);
 }
 
@@ -173,27 +173,52 @@ pre {
 .section__employers {
   & .employer-logos {
     display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--spacing-unit) * 4);
+    gap: clamp(10px, calc(var(--spacing-unit) * 8), 55px);
+
+    @media (max-width: 768px) {
+      & {
+        /* isn't working correctly, the svg logos are gone and the other logos are too large */
+        flex-direction: column;
+        border: solid 1px red;
+      }
+    }
   }
   & .employer-logos__logo {
-    width: 250px;
+    flex: 1 1 calc(100% / 7); /* dfault flex-basis is 100% / 7 logos */
     align-self: center;
     text-align: center;
 
     img[src$=".svg"] {
-      width: 250px;
+      width: 100%;
     }
   }
-  & .employer-logos__logo.tab img {
-    height: 80px;
+
+  & .employer-logos__logo.tab {
+    flex-basis: 7%;
+    img {
+      margin-top: -2%;
+    }
   }
-  & .employer-logos__logo.fnz img {
-    height: 60px;
+  & .employer-logos__logo.anz {
+    flex-basis: 13%;
   }
-  & .more {
-    text-align: center;
-    margin-top: calc(var(--spacing-unit) * 6);
+  & .employer-logos__logo.fnz {
+    flex-basis: 8%;
+  }
+  & .employer-logos__logo.eagle {
+    flex-basis: 5%;
+  }
+  & .employer-logos__logo.isac {
+    flex-basis: 10%;
+  }
+  & .employer-logos__logo.trademe {
+    flex-basis: 17%;
+  }
+  & .employer-logos__logo.gosweetspot {
+    flex-basis: 17%;
+    img {
+      margin-top: 13%;
+    }
   }
 }
 

@@ -2,10 +2,12 @@ a.standard-button,
 button.standard-button {
   text-decoration: none;
   background-color: white;
-  padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 6);
+  padding: clamp(5px, calc(var(--spacing-unit) * 2.5), 15px)
+    clamp(12px, calc(var(--spacing-unit) * 6), 36px);
 
-  .compact {
-    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+  &.compact {
+    padding: clamp(5px, calc(var(--spacing-unit) * 1.25), 7px)
+      clamp(12px, calc(var(--spacing-unit) * 3), 18px);
   }
 
   border: solid 1px var(--color-gray-300);
