@@ -1,7 +1,7 @@
 a.standard-button,
 button.standard-button {
   text-decoration: none;
-  background-color: white;
+  background-color: transparent;
   padding: clamp(5px, calc(var(--spacing-unit) * 2.5), 15px)
     clamp(12px, calc(var(--spacing-unit) * 6), 36px);
 
@@ -10,7 +10,7 @@ button.standard-button {
       clamp(12px, calc(var(--spacing-unit) * 3), 18px);
   }
 
-  border: solid 1px var(--color-gray-300);
+  border: solid 1px var(--color-line-secondary);
   border-radius: 5em;
   font-weight: 700;
   font-size: 85%;

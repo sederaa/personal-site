@@ -23,7 +23,7 @@ class MainMenu extends HTMLElement {
       position: fixed;
       left: 0;
       top: var(--header-height);
-      background-color: white;
+      background-color: var(--color-bg-primary);
       overflow: hidden;
     
       max-height: 0;
@@ -57,7 +57,7 @@ class MainMenu extends HTMLElement {
     }
     
     .hamburger-lines {
-      background: var(--color-gray-800);
+      background: var(--text-color);
       display: block;
       height: var(--hamburger-line-thickness);
       position: relative;
@@ -66,7 +66,7 @@ class MainMenu extends HTMLElement {
     
     .hamburger-lines::before,
     .hamburger-lines::after {
-      background: var(--color-gray-800);
+      background: var(--text-color);
       content: "";
       display: block;
       height: 100%;

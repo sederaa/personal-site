@@ -10,8 +10,8 @@ class PortfolioCard extends HTMLElement {
 
       <style>
           .card {
-              background-color: white;
-              border: solid 1px var(--color-gray-200);
+              background-color: var(--color-bg-tertiary);
+              border: solid 1px var(--color-line-secondary);
               border-radius: var(--border-radius);
               overflow: hidden; /*ensures nested elements don't overflow corners*/
               padding-bottom: calc(var(--spacing-unit) * 3);
@@ -32,7 +32,6 @@ class PortfolioCard extends HTMLElement {
           .card__context {
             padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
             font-size: 75%;
-            color: var(--color-gray-800);
             text-transform: uppercase;
           }
 
