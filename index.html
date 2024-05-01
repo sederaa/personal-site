@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,7 +45,9 @@
   <body>
     <header id="header" class="header">
       <div class="header__content mx-auto">
-        <div class="header__logo">SdR</div>
+        <div class="header__logo">
+          SdR <button id="change-color-scheme-btn">dark/light</button>
+        </div>
 
         <div class="header__menu">
           <main-menu></main-menu>
@@ -266,6 +268,82 @@
               "<p>Thanks for your message. I'll be in touch soon.</p>";
           })
           .catch((error) => alert(error));
+      });
+    </script>
+    <script type="module">
+      import {
+        createMachine,
+        interpret,
+        state,
+        transition,
+        action,
+        immediate,
+        guard,
+      } from "./lib/robot3.js"; //"https://unpkg.com/robot3@0.4.1/dist/machine.js";
+
+      console.debug(
+        `creating machine (localStorage.getItem("theme") = ${localStorage.getItem(
+          "theme"
+        )})...`
+      );
+      const machine = createMachine({
+        init: state(
+          immediate(
+            "dark",
+            guard(() => {
+              console.debug(
+                "is dark = " +
+                  (localStorage.getItem("theme") === "dark" ? "yes" : "no")
+              );
+              return localStorage.getItem("theme") === "dark";
+            }),
+            action(() => {
+              document.documentElement.classList.add("dark");
+              document.documentElement.classList.remove("light");
+              localStorage.setItem("theme", "dark");
+            })
+          ),
+          immediate(
+            "light",
+            action(() => {
+              document.documentElement.classList.add("light");
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("theme", "light");
+            })
+          )
+        ),
+        light: state(
+          transition(
+            "toggle",
+            "dark",
+            action(() => {
+              document.documentElement.classList.add("dark");
+              document.documentElement.classList.remove("light");
+              localStorage.setItem("theme", "dark");
+            })
+          )
+        ),
+        dark: state(
+          transition(
+            "toggle",
+            "light",
+            action(() => {
+              document.documentElement.classList.add("light");
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("theme", "light");
+            })
+          )
+        ),
+      });
+
+      const service = interpret(machine, () => {
+        console.debug(`machine.current = ${service.machine.current}.`);
+      });
+
+      const btn = document.getElementById("change-color-scheme-btn");
+      btn.addEventListener("click", () => {
+        console.debug(`sending machine toggle...`);
+        service.send("toggle");
       });
     </script>
   </body>
