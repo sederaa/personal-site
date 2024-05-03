@@ -45,9 +45,7 @@
   <body>
     <header id="header" class="header">
       <div class="header__content mx-auto">
-        <div class="header__logo">
-          SdR <button id="change-color-scheme-btn">dark/light</button>
-        </div>
+        <div class="header__logo">SdR</div>
 
         <div class="header__menu">
           <main-menu></main-menu>
@@ -96,6 +94,7 @@
               >Get in touch</standard-button
             >
           </nav>
+          <button id="change-color-scheme-btn">dark/light</button>
         </div>
       </section>
 
@@ -279,6 +278,7 @@
         action,
         immediate,
         guard,
+        stateAction,
       } from "./lib/robot3.js"; //"https://unpkg.com/robot3@0.4.1/dist/machine.js";
 
       console.debug(
@@ -310,7 +310,10 @@
               document.documentElement.classList.remove("dark");
               localStorage.setItem("theme", "light");
             })
-          )
+          ),
+          stateAction((...args) => {
+            console.debug(`init state: stateAction: args = `, args);
+          })
         ),
         light: state(
           transition(
@@ -321,7 +324,10 @@
               document.documentElement.classList.remove("light");
               localStorage.setItem("theme", "dark");
             })
-          )
+          ),
+          stateAction((...args) => {
+            console.debug(`light state: stateAction: args = `, args);
+          })
         ),
         dark: state(
           transition(
