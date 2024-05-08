@@ -278,7 +278,7 @@
         action,
         immediate,
         guard,
-        stateAction,
+        entry,
       } from "./lib/robot3.js"; //"https://unpkg.com/robot3@0.4.1/dist/machine.js";
 
       console.debug(
@@ -286,59 +286,59 @@
           "theme"
         )})...`
       );
+      const storedTheme = localStorage.getItem("theme") ?? "system";
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      console.debug(
+        `storedTheme = ${storedTheme}, systemTheme = ${systemTheme}.`
+      );
+
+      const entryLight = entry((...args) => {
+        //console.debug(`light state: entry: args = `, args);
+        document.documentElement.classList.add("light");
+        document.documentElement.classList.remove("dark");
+      });
+
+      const entryDark = entry((...args) => {
+        //console.debug(`light state: entry: args = `, args);
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
+      });
+
       const machine = createMachine({
         init: state(
           immediate(
-            "dark",
-            guard(() => {
-              console.debug(
-                "is dark = " +
-                  (localStorage.getItem("theme") === "dark" ? "yes" : "no")
-              );
-              return localStorage.getItem("theme") === "dark";
-            }),
-            action(() => {
-              document.documentElement.classList.add("dark");
-              document.documentElement.classList.remove("light");
-              localStorage.setItem("theme", "dark");
-            })
+            "system",
+            guard(() => storedTheme === "system")
           ),
           immediate(
-            "light",
-            action(() => {
-              document.documentElement.classList.add("light");
-              document.documentElement.classList.remove("dark");
-              localStorage.setItem("theme", "light");
-            })
-          ),
-          stateAction((...args) => {
-            console.debug(`init state: stateAction: args = `, args);
-          })
-        ),
-        light: state(
-          transition(
-            "toggle",
             "dark",
-            action(() => {
-              document.documentElement.classList.add("dark");
-              document.documentElement.classList.remove("light");
-              localStorage.setItem("theme", "dark");
-            })
+            guard(() => storedTheme === "dark")
           ),
-          stateAction((...args) => {
-            console.debug(`light state: stateAction: args = `, args);
-          })
+          immediate("light")
+        ),
+        system: state(
+          systemTheme === "dark" ? entryDark : entryLight,
+          action(() => {
+            localStorage.setItem("theme", "system");
+          }),
+          transition("toggle", "dark")
         ),
         dark: state(
-          transition(
-            "toggle",
-            "light",
-            action(() => {
-              document.documentElement.classList.add("light");
-              document.documentElement.classList.remove("dark");
-              localStorage.setItem("theme", "light");
-            })
-          )
+          entryDark,
+          action(() => {
+            localStorage.setItem("theme", "dark");
+          }),
+          transition("toggle", "light")
+        ),
+        light: state(
+          entryLight,
+          action(() => {
+            localStorage.setItem("theme", "light");
+          }),
+          transition("toggle", "system")
         ),
       });
 
