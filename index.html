@@ -26,10 +26,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link href="css/site.css?6" rel="stylesheet" />
     <link href="css/standard-button.css" rel="stylesheet" />
 
@@ -57,69 +54,39 @@
       <section class="section section__intro mx-auto">
         <div class="section__intro-container">
           <h1 class="section__intro-title">
-            <span class="section__intro-title-text"
-              >Hi, I'm Seb de Raadt 👋
-            </span>
+            <span class="section__intro-title-text">Hi, I'm Seb de Raadt 👋 </span>
           </h1>
           <p>
-            I'm a full-stack software developer passionate about building
-            applications with React, ASP.NET Core and many other
+            I'm a full-stack software developer passionate about building applications with React, ASP.NET Core and many other
             <a href="#tech-section">technologies</a>.
           </p>
           <p>
-            I have 20+ years experience building web applications of all sizes,
-            APIs, micro services, integrations, an auth server, a mobile app,
-            and many others. In recent years I have primarily worked in the
-            freight industry.
+            I have 20+ years experience building web applications of all sizes, APIs, micro services, integrations, an auth server, a mobile app, and many
+            others. In recent years I have primarily worked in the freight industry.
           </p>
           <p>I live in Auckland, New Zealand 🇳🇿</p>
 
           <nav class="section__intro-menu">
-            <standard-button
-              as="a"
-              iconImageUrl="img/icons/book.svg"
-              href="#portfolio-section"
-              >See my work</standard-button
-            >
-            <standard-button
-              as="a"
-              iconImageUrl="img/icons/file-arrow-down.svg"
-              href="alert('to do')"
-              >Download my resume</standard-button
-            >
-            <standard-button
-              as="a"
-              iconImageUrl="img/icons/phone.svg"
-              href="#contact-section"
-              >Get in touch</standard-button
-            >
+            <standard-button as="a" iconImageUrl="img/icons/book.svg" href="#portfolio-section">See my work</standard-button>
+            <standard-button as="a" iconImageUrl="img/icons/file-arrow-down.svg" href="alert('to do')">Download my resume</standard-button>
+            <standard-button as="a" iconImageUrl="img/icons/phone.svg" href="#contact-section">Get in touch</standard-button>
           </nav>
           <button id="change-color-scheme-btn">dark/light</button>
         </div>
       </section>
 
       <div style="background-color: var(--color-bg-secondary); width: 100%">
-        <section
-          id="employers-section"
-          class="section section__employers mx-auto"
-        >
+        <section id="employers-section" class="section section__employers mx-auto">
           <h2>Employers</h2>
 
           <ul class="employer-logos">
             <li class="employer-logos__logo gosweetspot">
               <a href="https://gosweetspot.com" target="_blank" rel="noopener">
-                <img
-                  src="/img/employers/gosweetspot.svg"
-                  alt="GoSweetSpot logo"
-                />
+                <img src="/img/employers/gosweetspot.svg" alt="GoSweetSpot logo" />
               </a>
             </li>
             <li class="employer-logos__logo trademe">
-              <a
-                href="https://www.trademe.co.nz/"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="https://www.trademe.co.nz/" target="_blank" rel="noopener">
                 <img src="/img/employers/trademe.png" alt="TradeMe logo" />
               </a>
             </li>
@@ -168,25 +135,17 @@
         </section>
       </div>
 
-      <section
-        id="tech-section"
-        class="section section__tech mx-auto bg-secondary"
-      >
+      <section id="tech-section" class="section section__tech mx-auto bg-secondary">
         <h2>Technologies</h2>
 
         <tech-listing></tech-listing>
       </section>
 
       <div style="background-color: var(--color-bg-secondary); width: 100%">
-        <section
-          id="portfolio-section"
-          class="section section__portfolio mx-auto"
-        >
+        <section id="portfolio-section" class="section section__portfolio mx-auto">
           <h2>Portfolio</h2>
 
-          <portfolio-cards-grid
-            id="portfolio-cards-grid"
-          ></portfolio-cards-grid>
+          <portfolio-cards-grid id="portfolio-cards-grid"></portfolio-cards-grid>
         </section>
       </div>
       <section id="contact-section" class="section mx-auto">
@@ -198,15 +157,7 @@
           </p>
           <form class="contact-form" name="contact-form" method="POST" netlify>
             <div class="fields">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                maxlength="100"
-                autocomplete="name"
-                placeholder="Name"
-                required
-              />
+              <input type="text" id="name" name="name" maxlength="100" autocomplete="name" placeholder="Name" required />
               <input
                 type="email"
                 id="email_address"
@@ -217,25 +168,15 @@
                 required="Email address is required"
               />
             </div>
-            <textarea
-              id="message"
-              name="message"
-              maxlength="100"
-              autocomplete="message"
-              placeholder="Your message"
-            ></textarea>
+            <textarea id="message" name="message" maxlength="100" autocomplete="message" placeholder="Your message"></textarea>
             <div>
-              <standard-button type="submit" id="send-message-btn"
-                >Send Message</standard-button
-              >
+              <standard-button type="submit" id="send-message-btn">Send Message</standard-button>
             </div>
           </form>
         </div>
       </section>
     </main>
-    <footer class="section footer mx-auto">
-      &copy; <current-year></current-year> Sebastian de Raadt
-    </footer>
+    <footer class="section footer mx-auto">&copy; <current-year></current-year> Sebastian de Raadt</footer>
     <script type="text/javascript">
       const form = document.querySelector("form");
       const sendButton = document.getElementById("send-message-btn");
@@ -250,9 +191,7 @@
         const myForm = event.target;
         const formData = new FormData(myForm);
 
-        const contactSectionContent = document.querySelector(
-          "#contact-section #content"
-        );
+        const contactSectionContent = document.querySelector("#contact-section #content");
         // Set the height of the div to its current computed height
         contactSectionContent.style.height = `${contactSectionContent.offsetHeight}px`;
         contactSectionContent.innerHTML = "<p>Sending...</p>";
@@ -263,37 +202,20 @@
           body: new URLSearchParams(formData).toString(),
         })
           .then(() => {
-            contactSectionContent.innerHTML =
-              "<p>Thanks for your message. I'll be in touch soon.</p>";
+            contactSectionContent.innerHTML = "<p>Thanks for your message. I'll be in touch soon.</p>";
           })
           .catch((error) => alert(error));
       });
     </script>
     <script type="module">
-      import {
-        createMachine,
-        interpret,
-        state,
-        transition,
-        action,
-        immediate,
-        guard,
-        entry,
-      } from "./lib/robot3.js"; //"https://unpkg.com/robot3@0.4.1/dist/machine.js";
+      import { createMachine, interpret, state, transition, action, immediate, guard, entry } from "./lib/robot3.js"; //"https://unpkg.com/robot3@0.4.1/dist/machine.js";
 
-      console.debug(
-        `creating machine (localStorage.getItem("theme") = ${localStorage.getItem(
-          "theme"
-        )})...`
-      );
+      console.debug(`creating machine (localStorage.getItem("theme") = ${localStorage.getItem("theme")})...`);
       const storedTheme = localStorage.getItem("theme") ?? "system";
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-      console.debug(
-        `storedTheme = ${storedTheme}, systemTheme = ${systemTheme}.`
-      );
+
+      const prefersColorSchemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+      const systemTheme = prefersColorSchemeMedia.matches ? "dark" : "light";
+      console.debug(`storedTheme = ${storedTheme}, systemTheme = ${systemTheme}.`);
 
       const entryLight = entry((...args) => {
         //console.debug(`light state: entry: args = `, args);
@@ -321,29 +243,47 @@
         ),
         system: state(
           systemTheme === "dark" ? entryDark : entryLight,
-          entry(() => {
-            localStorage.setItem("theme", "system");
-          }),
-          transition("toggle", "dark")
+          transition(
+            "toggle",
+            "dark",
+            action(() => {
+              localStorage.setItem("theme", "dark");
+            })
+          ),
+          transition("system-dark", "dark"),
+          transition("system-light", "light")
         ),
         dark: state(
           entryDark,
-          entry(() => {
-            localStorage.setItem("theme", "dark");
-          }),
-          transition("toggle", "light")
+          transition(
+            "toggle",
+            "light",
+            action(() => {
+              localStorage.setItem("theme", "light");
+            })
+          ),
+          transition("system-light", "light")
         ),
         light: state(
           entryLight,
-          entry(() => {
-            localStorage.setItem("theme", "light");
-          }),
-          transition("toggle", "system")
+          transition(
+            "toggle",
+            "system",
+            action(() => {
+              localStorage.setItem("theme", "system");
+            })
+          ),
+          transition("system-dark", "dark")
         ),
       });
 
       const service = interpret(machine, () => {
         console.debug(`machine.current = ${service.machine.current}.`);
+      });
+
+      prefersColorSchemeMedia.addEventListener("change", (evnt) => {
+        //console.debug(`prefersColorSchemeMedia.change: `, evnt);
+        service.send(evnt.matches ? "system-dark" : "system-light");
       });
 
       const btn = document.getElementById("change-color-scheme-btn");
