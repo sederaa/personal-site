@@ -321,21 +321,21 @@
         ),
         system: state(
           systemTheme === "dark" ? entryDark : entryLight,
-          action(() => {
+          entry(() => {
             localStorage.setItem("theme", "system");
           }),
           transition("toggle", "dark")
         ),
         dark: state(
           entryDark,
-          action(() => {
+          entry(() => {
             localStorage.setItem("theme", "dark");
           }),
           transition("toggle", "light")
         ),
         light: state(
           entryLight,
-          action(() => {
+          entry(() => {
             localStorage.setItem("theme", "light");
           }),
           transition("toggle", "system")
