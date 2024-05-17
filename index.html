@@ -207,89 +207,44 @@
           .catch((error) => alert(error));
       });
     </script>
-    <script type="module">
-      import { createMachine, interpret, state, transition, action, immediate, guard, entry } from "./lib/robot3.js"; //"https://unpkg.com/robot3@0.4.1/dist/machine.js";
-
-      console.debug(`creating machine (localStorage.getItem("theme") = ${localStorage.getItem("theme")})...`);
-      const storedTheme = localStorage.getItem("theme") ?? "system";
-
-      const prefersColorSchemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-      const systemTheme = prefersColorSchemeMedia.matches ? "dark" : "light";
-      console.debug(`storedTheme = ${storedTheme}, systemTheme = ${systemTheme}.`);
-
-      const entryLight = entry((...args) => {
-        //console.debug(`light state: entry: args = `, args);
-        document.documentElement.classList.add("light");
-        document.documentElement.classList.remove("dark");
-      });
-
-      const entryDark = entry((...args) => {
-        //console.debug(`light state: entry: args = `, args);
+    <script>
+      const dark = () => {
         document.documentElement.classList.add("dark");
         document.documentElement.classList.remove("light");
-      });
-
-      const machine = createMachine({
-        init: state(
-          immediate(
-            "system",
-            guard(() => storedTheme === "system")
-          ),
-          immediate(
-            "dark",
-            guard(() => storedTheme === "dark")
-          ),
-          immediate("light")
-        ),
-        system: state(
-          systemTheme === "dark" ? entryDark : entryLight,
-          transition(
-            "toggle",
-            "dark",
-            action(() => {
-              localStorage.setItem("theme", "dark");
-            })
-          ),
-          transition("system-dark", "dark"),
-          transition("system-light", "light")
-        ),
-        dark: state(
-          entryDark,
-          transition(
-            "toggle",
-            "light",
-            action(() => {
-              localStorage.setItem("theme", "light");
-            })
-          ),
-          transition("system-light", "light")
-        ),
-        light: state(
-          entryLight,
-          transition(
-            "toggle",
-            "system",
-            action(() => {
-              localStorage.setItem("theme", "system");
-            })
-          ),
-          transition("system-dark", "dark")
-        ),
-      });
-
-      const service = interpret(machine, () => {
-        console.debug(`machine.current = ${service.machine.current}.`);
-      });
-
+      };
+      const light = () => {
+        document.documentElement.classList.add("light");
+        document.documentElement.classList.remove("dark");
+      };
+      const prefersColorSchemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
       prefersColorSchemeMedia.addEventListener("change", (evnt) => {
-        //console.debug(`prefersColorSchemeMedia.change: `, evnt);
-        service.send(evnt.matches ? "system-dark" : "system-light");
+        const storedTheme = localStorage.getItem("theme") ?? "system";
+        if (storedTheme !== "system") return;
+        if (evnt.matches) {
+          dark();
+        } else {
+          light();
+        }
       });
 
       const btn = document.getElementById("change-color-scheme-btn");
       btn.addEventListener("click", () => {
-        console.debug(`sending machine toggle...`);
-        service.send("toggle");
+        const storedTheme = localStorage.getItem("theme") ?? "system";
+        if (storedTheme === "system") {
+          dark();
+          localStorage.setItem("theme", "dark");
+        } else if (storedTheme === "dark") {
+          light();
+          localStorage.setItem("theme", "light");
+        } else if (storedTheme === "light") {
+          const systemTheme = prefersColorSchemeMedia.matches ? "dark" : "light";
+          if (systemTheme === "dark") {
+            dark();
+          } else if (systemTheme === "light") {
+            light();
+          }
+          localStorage.setItem("theme", "system");
+        }
       });
     </script>
   </body>
