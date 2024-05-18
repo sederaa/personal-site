@@ -30,6 +30,7 @@
     <link href="css/site.css?6" rel="stylesheet" />
     <link href="css/standard-button.css" rel="stylesheet" />
 
+    <script src="js/theme-selector.js" defer></script>
     <script src="js/main-menu.js" defer></script>
     <script src="js/portfolio-card.js" defer></script>
     <script type="module" src="js/portfolio-cards-grid.js" defer></script>
@@ -71,7 +72,6 @@
             <standard-button as="a" iconImageUrl="img/icons/file-arrow-down.svg" href="alert('to do')">Download my resume</standard-button>
             <standard-button as="a" iconImageUrl="img/icons/phone.svg" href="#contact-section">Get in touch</standard-button>
           </nav>
-          <button id="change-color-scheme-btn">dark/light</button>
         </div>
       </section>
 
@@ -205,46 +205,6 @@
             contactSectionContent.innerHTML = "<p>Thanks for your message. I'll be in touch soon.</p>";
           })
           .catch((error) => alert(error));
-      });
-    </script>
-    <script>
-      const dark = () => {
-        document.documentElement.classList.add("dark");
-        document.documentElement.classList.remove("light");
-      };
-      const light = () => {
-        document.documentElement.classList.add("light");
-        document.documentElement.classList.remove("dark");
-      };
-      const prefersColorSchemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-      prefersColorSchemeMedia.addEventListener("change", (evnt) => {
-        const storedTheme = localStorage.getItem("theme") ?? "system";
-        if (storedTheme !== "system") return;
-        if (evnt.matches) {
-          dark();
-        } else {
-          light();
-        }
-      });
-
-      const btn = document.getElementById("change-color-scheme-btn");
-      btn.addEventListener("click", () => {
-        const storedTheme = localStorage.getItem("theme") ?? "system";
-        if (storedTheme === "system") {
-          dark();
-          localStorage.setItem("theme", "dark");
-        } else if (storedTheme === "dark") {
-          light();
-          localStorage.setItem("theme", "light");
-        } else if (storedTheme === "light") {
-          const systemTheme = prefersColorSchemeMedia.matches ? "dark" : "light";
-          if (systemTheme === "dark") {
-            dark();
-          } else if (systemTheme === "light") {
-            light();
-          }
-          localStorage.setItem("theme", "system");
-        }
       });
     </script>
   </body>
