@@ -12,7 +12,7 @@ class ThemeSelector extends HTMLElement {
     const iconContainer = document.createElement("span");
     this.element.appendChild(iconContainer);
 
-    const next = (theme) => {
+    const nextTheme = (theme) => {
       const themes = ["system", "dark", "light"];
       return themes[(themes.indexOf(theme) + 1) % themes.length];
     };
@@ -39,7 +39,7 @@ class ThemeSelector extends HTMLElement {
     const storedTheme = localStorage.getItem("theme") ?? "system";
 
     applyUITheme(storedTheme === "system" ? systemTheme : storedTheme);
-    updateSelectorUI(storedTheme, next(storedTheme));
+    updateSelectorUI(storedTheme, nextTheme(storedTheme));
 
     prefersColorSchemeMedia.addEventListener("change", (evnt) => {
       const storedTheme = localStorage.getItem("theme") ?? "system";
@@ -49,8 +49,8 @@ class ThemeSelector extends HTMLElement {
 
     this.element.addEventListener("click", () => {
       const storedTheme = localStorage.getItem("theme") ?? "system";
-      const nextTheme = next(storedTheme);
-      const nextNextTheme = next(nextTheme);
+      const nextTheme = nextTheme(storedTheme);
+      const nextNextTheme = nextTheme(nextTheme);
       const nextDisplayTheme = nextTheme === "system" ? (prefersColorSchemeMedia.matches ? "dark" : "light") : nextTheme;
       localStorage.setItem("theme", nextTheme);
       applyUITheme(nextDisplayTheme);
