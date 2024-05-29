@@ -49,12 +49,12 @@ class ThemeSelector extends HTMLElement {
 
     this.element.addEventListener("click", () => {
       const storedTheme = localStorage.getItem("theme") ?? "system";
-      const nextTheme2 = nextTheme(storedTheme);
-      const nextNextTheme = nextTheme(nextTheme2);
-      const nextDisplayTheme = nextTheme2 === "system" ? (prefersColorSchemeMedia.matches ? "dark" : "light") : nextTheme2;
-      localStorage.setItem("theme", nextTheme2);
+      const nextThemeValue = nextTheme(storedTheme);
+      const nextNextTheme = nextTheme(nextThemeValue);
+      const nextDisplayTheme = nextThemeValue === "system" ? (prefersColorSchemeMedia.matches ? "dark" : "light") : nextThemeValue;
+      localStorage.setItem("theme", nextThemeValue);
       applyUITheme(nextDisplayTheme);
-      updateSelectorUI(nextTheme2, nextNextTheme);
+      updateSelectorUI(nextThemeValue, nextNextTheme);
     });
 
     const themeLabel = document.createElement("span");
