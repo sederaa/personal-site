@@ -2,12 +2,10 @@ a.standard-button,
 button.standard-button {
   text-decoration: none;
   background-color: transparent;
-  padding: clamp(5px, calc(var(--spacing-unit) * 2.5), 15px)
-    clamp(12px, calc(var(--spacing-unit) * 6), 36px);
+  padding: clamp(5px, calc(var(--spacing-unit) * 2.5), 15px) clamp(12px, calc(var(--spacing-unit) * 6), 36px);
 
   &.compact {
-    padding: clamp(5px, calc(var(--spacing-unit) * 1.25), 7px)
-      clamp(12px, calc(var(--spacing-unit) * 3), 18px);
+    padding: clamp(5px, calc(var(--spacing-unit) * 1.25), 7px) clamp(12px, calc(var(--spacing-unit) * 3), 18px);
   }
 
   border: solid 1px var(--color-line-secondary);
@@ -22,7 +20,7 @@ button.standard-button {
   margin-right: var(--spacing-unit);
   cursor: pointer;
   display: inline-flex;
-  gap: calc(var(--spacing-unit) * 3);
+  gap: var(--spacing-unit);
 
   .icon {
     width: 1.1em;

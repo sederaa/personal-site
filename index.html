@@ -68,9 +68,36 @@
           <p>I live in Auckland, New Zealand 🇳🇿</p>
 
           <nav class="section__intro-menu">
-            <standard-button as="a" iconImageUrl="img/icons/book.svg" href="#portfolio-section">See my work</standard-button>
-            <standard-button as="a" iconImageUrl="img/icons/file-arrow-down.svg" href="alert('to do')">Download my resume</standard-button>
-            <standard-button as="a" iconImageUrl="img/icons/phone.svg" href="#contact-section">Get in touch</standard-button>
+            <standard-button as="a" href="#portfolio-section">
+              <!-- book -->
+              <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 1.1em; height: 1.1em">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
+                />
+              </svg>
+              <span slot="label">See my work</span>
+            </standard-button>
+            <standard-button as="a" href="alert('to do')">
+              <!-- file-arrow-down -->
+              <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 1.1em; height: 1.1em">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"
+                />
+              </svg>
+              <span slot="label">Download my resume</span>
+            </standard-button>
+            <standard-button as="a" iconImageUrl="img/icons/phone.svg" href="#contact-section">
+              <!-- phone -->
+              <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 1.1em; height: 1.1em">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+                />
+              </svg>
+              <span slot="label">Get in touch</span>
+            </standard-button>
           </nav>
         </div>
       </section>
@@ -170,7 +197,9 @@
             </div>
             <textarea id="message" name="message" maxlength="100" autocomplete="message" placeholder="Your message"></textarea>
             <div>
-              <standard-button type="submit" id="send-message-btn">Send Message</standard-button>
+              <standard-button type="submit" id="send-message-btn">
+                <span slot="label">Send Message</span>
+              </standard-button>
             </div>
           </form>
         </div>

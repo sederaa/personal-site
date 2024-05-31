@@ -1,52 +1,50 @@
 class StandardButton extends HTMLElement {
   constructor() {
     super();
-    this.element = null;
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
-    const label = this.textContent;
-    this.innerHTML = null;
-    const as = this.getAttribute("as") ?? "button";
-    this.element = document.createElement(as);
+    const style = document.createElement("link");
+    style.rel = "stylesheet";
+    style.href = "css/standard-button.css";
+    this.shadowRoot.appendChild(style);
 
-    this.element.classList.add("standard-button");
+    const as = this.getAttribute("as") ?? "button";
+    const element = document.createElement(as);
+    this.shadowRoot.appendChild(element);
+
+    element.classList.add("standard-button");
 
     if (as === "a" && this.getAttribute("href")) {
-      this.element.href = this.getAttribute("href");
+      element.href = this.getAttribute("href");
     }
 
     if (as === "button" && this.getAttribute("type")) {
-      this.element.type = this.getAttribute("type");
+      element.type = this.getAttribute("type");
     }
 
-    const iconImageUrl = this.getAttribute("iconImageUrl");
-    if (iconImageUrl) {
-      let iconElement = document.createElement("img");
-      iconElement.src = iconImageUrl;
-      iconElement.className = "icon";
-      this.element.appendChild(iconElement);
-    }
+    const iconSlot = document.createElement("slot");
+    iconSlot.name = "icon";
+    element.appendChild(iconSlot);
 
-    let labelElement = document.createElement("span");
-    labelElement.innerText = label;
-    this.element.appendChild(labelElement);
+    const labelSlot = document.createElement("slot");
+    labelSlot.name = "label";
+    element.appendChild(labelSlot);
 
     if (this.getAttribute("compact")) {
-      this.element.classList.add("compact");
+      element.classList.add("compact");
     }
-
-    this.appendChild(this.element);
   }
 
   addEventListener(type, listener, options) {
-    if (!this.element) return;
-    this.element.addEventListener(type, listener, options);
+    if (!element) return;
+    element.addEventListener(type, listener, options);
   }
 
   removeEventListener(type, listener, options) {
-    if (!this.element) return;
-    this.element.removeEventListener(type, listener, options);
+    if (!element) return;
+    element.removeEventListener(type, listener, options);
   }
 }
 
