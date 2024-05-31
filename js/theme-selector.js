@@ -6,8 +6,9 @@ class ThemeSelector extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = null;
-    this.element = document.createElement("a");
-    this.element.href = "#";
+    this.element = document.createElement("div");
+    this.element.classList.add("target");
+    this.element.style.cursor = "pointer";
 
     const iconContainer = document.createElement("span");
     this.element.appendChild(iconContainer);

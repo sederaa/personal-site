@@ -123,17 +123,20 @@ class MainMenu extends HTMLElement {
         justify-content: flex-end;
       }
     
-      nav a {
+      nav a,
+      nav div.target {
         padding: calc(var(--spacing-unit) * 1) 0;
         text-shadow: none;
         transition: all 0.2s ease-out;
       }
-      nav a:hover {
+      nav a:hover,
+      nav div.target:hover {
         background-color: transparent;
         color: var(--color-highlight);
       }
 
-      nav a span.label {
+      nav a span.label,
+      nav div.target span.label {
         display: none;
       }
     
