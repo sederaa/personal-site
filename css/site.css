@@ -27,6 +27,7 @@
   --font-size: 14pt;
   --title-font-family: "Inter";
   --text-color: var(--color-gray-800);
+  --text-color-muted: var(--color-gray-600);
 }
 
 html.dark {
@@ -36,6 +37,7 @@ html.dark {
   --color-line-primary: var(--color-gray-700);
   --color-line-secondary: var(--color-gray-500);
   --text-color: var(--color-gray-200);
+  --text-color-muted: var(--color-gray-400);
 }
 
 @supports (font-variation-settings: normal) {
@@ -50,8 +52,7 @@ html {
 }
 
 body {
-  font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 300;
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
@@ -81,8 +82,7 @@ kbd,
 samp,
 pre {
   /* see https://github.com/system-fonts/modern-font-stacks?tab=readme-ov-file#monospace-code */
-  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-    "DejaVu Sans Mono", monospace;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
 
 /* dark/light selector */
@@ -194,6 +194,11 @@ pre {
     }
   }
 
+  & img.light,
+  & img.dark {
+    display: none;
+  }
+
   & .employer-logos__logo.tab {
     flex-basis: 7%;
     img {
@@ -207,7 +212,9 @@ pre {
     flex-basis: 8%;
   }
   & .employer-logos__logo.eagle {
-    flex-basis: 5%;
+    img {
+      margin-top: -2%;
+    }
   }
   & .employer-logos__logo.isac {
     flex-basis: 10%;
@@ -220,6 +227,19 @@ pre {
     img {
       margin-top: 13%;
     }
+  }
+  & .employer-logos__logo.fnz,
+  & .employer-logos__logo.eagle,
+  & .employer-logos__logo.tab {
+    html.light & img.light {
+      display: block;
+    }
+    html.dark & img.dark {
+      display: block;
+    }
+  }
+  & .more {
+    text-align: center;
   }
 }
 
@@ -342,4 +362,11 @@ html.dark .section__tech .section__generic-tech-logo {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.muted {
+  color: var(--text-color-muted);
+  a {
+    color: var(--text-color-muted);
+  }
 }
