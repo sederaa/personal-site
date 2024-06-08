@@ -64,6 +64,10 @@ body {
 
 a {
   color: var(--text-color);
+  transition: all 0.2s ease-out !important;
+  &:hover {
+    color: var(--color-highlight) !important;
+  }
 }
 
 h2 {
@@ -150,7 +154,9 @@ svg {
 }
 
 /* intro */
-
+.section__intro-container .flag {
+  font-size: larger;
+}
 .section__intro-title {
   margin-top: calc(var(--spacing-unit) * 20);
 }

@@ -21,9 +21,15 @@ button.standard-button {
   cursor: pointer;
   display: inline-flex;
   gap: var(--spacing-unit);
+  transition: all 0.2s ease-out;
 
   .icon {
     width: 1.1em;
     height: 1.1em;
+  }
+
+  &:hover {
+    color: var(--color-highlight);
+    border: solid 1px var(--color-highlight);
   }
 }
