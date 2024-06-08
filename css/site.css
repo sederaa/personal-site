@@ -289,13 +289,15 @@ svg {
   display: inline-block;
   width: 2em;
   height: 2em;
-  text-align: center;
   background-color: var(--color-gray-200);
   border-radius: 5em;
-  line-height: 2.3em;
   color: white;
   font-weight: bold;
   margin-right: var(--spacing-unit);
+  /*centering*/
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 html.dark .section__tech .section__generic-tech-logo {
