@@ -85,6 +85,11 @@ pre {
   font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
 
+svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
 /* dark/light selector */
 .dark-light-selector {
   position: fixed;
