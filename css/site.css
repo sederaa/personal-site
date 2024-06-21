@@ -18,11 +18,12 @@
   --color-line-primary: var(--color-gray-200);
   --color-line-secondary: var(--color-gray-300);
 
-  --spacing-unit: 0.5vw;
+  --spacing-unit: clamp(8px, 0.5vw, 100px);
   --hamburger-line-thickness: 0.15rem;
   --header-height: 70px;
   --content-width: 1200px;
   --border-radius: calc(var(--spacing-unit) * 2);
+  --small-screen-break: 768px;
 
   --font-size: 14pt;
   --title-font-family: "Inter";
@@ -116,7 +117,6 @@ svg {
   width: 100%;
   z-index: 100;
   background-color: var(--color-bg-primary);
-  padding: var(--spacing-unit) calc(var(--spacing-unit) * 5);
   border-bottom: solid var(--color-line-primary) 0.5px;
 }
 
@@ -126,6 +126,7 @@ svg {
 
 .header__content {
   max-width: var(--content-width);
+  padding: 0 calc(var(--spacing-unit) * 5);
   height: 100%;
   display: flex;
 }
@@ -139,6 +140,7 @@ svg {
   font-size: calc(var(--font-size) * 2);
   font-weight: 700;
   white-space: nowrap;
+  color: var(--color-highlight);
   /*center text vertically*/
   display: flex;
   flex-direction: column;
@@ -179,6 +181,12 @@ svg {
 
 .section__intro-menu {
   transition: 0.4s;
+  display: flex;
+  gap: calc(var(--spacing-unit) * 2);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 /* employers */
@@ -189,9 +197,8 @@ svg {
 
     @media (max-width: 768px) {
       & {
-        /* isn't working correctly, the svg logos are gone and the other logos are too large */
         flex-direction: column;
-        border: solid 1px red;
+        gap: calc(var(--spacing-unit) * 4);
       }
     }
   }
@@ -202,6 +209,12 @@ svg {
 
     img[src$=".svg"] {
       width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      & {
+        align-self: unset;
+      }
     }
   }
 
@@ -239,6 +252,7 @@ svg {
       margin-top: 13%;
     }
   }
+
   & .employer-logos__logo.fnz,
   & .employer-logos__logo.eagle,
   & .employer-logos__logo.tab {
