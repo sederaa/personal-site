@@ -147,6 +147,146 @@ svg {
   justify-content: center;
 }
 
+/* main menu */
+
+.main-menu-wrapper {
+  height: 100%;
+  /*align hamburger lines right*/
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+}
+
+nav li {
+  padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 5);
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* Menu Icon */
+.hamburger-label {
+  cursor: pointer;
+  height: 100%;
+  float: right;
+  /*center hamburger lines vertically*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hamburger-lines {
+  background: var(--text-color);
+  display: block;
+  height: var(--hamburger-line-thickness);
+  position: relative;
+  width: 1.2rem;
+}
+
+.hamburger-lines::before,
+.hamburger-lines::after {
+  background: var(--text-color);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.hamburger-lines::before {
+  top: calc(var(--hamburger-line-thickness) * 2);
+}
+.hamburger-lines::after {
+  top: calc(var(--hamburger-line-thickness) * 2 * -1);
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+/* Toggle menu icon */
+.menu-checkbox:checked ~ nav {
+  max-height: 100%;
+  overscroll-behavior: none;
+}
+.menu-checkbox:checked ~ .hamburger-label .hamburger-lines {
+  background: transparent;
+}
+.menu-checkbox:checked ~ .hamburger-label .hamburger-lines::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.menu-checkbox:checked ~ .hamburger-label .hamburger-lines::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .main-menu-wrapper {
+    /*center menu items vertically*/
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  nav {
+    max-height: unset;
+    position: relative;
+    width: 100%;
+    margin-top: unset;
+    top: unset;
+  }
+
+  nav li {
+    padding: var(--spacing-unit) 0;
+  }
+
+  nav ul {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 4);
+    justify-content: flex-end;
+  }
+
+  nav a,
+  nav div.target {
+    text-shadow: none;
+    transition: all 0.2s ease-out;
+  }
+  nav a:hover,
+  nav div.target:hover {
+    background-color: transparent;
+    color: var(--color-highlight);
+  }
+
+  nav a span.label,
+  nav div.target span.label {
+    display: none;
+  }
+
+  .hamburger-label {
+    display: none;
+  }
+}
+
 /* sections */
 
 .section {
@@ -333,6 +473,12 @@ html.dark .section__tech .section__generic-tech-logo {
     display: flex;
     flex-direction: row;
     gap: calc(var(--spacing-unit) * 4);
+
+    @media (max-width: 768px) {
+      & {
+        flex-direction: column;
+      }
+    }
   }
   .fields > * {
     flex: 1 1 auto;
