@@ -274,7 +274,7 @@
       // Attach event handler to menu links to close the menu on click
       const menu = document.getElementById("menu");
       const links = menu.getElementsByClassName("section-link");
-      const menuCheckbox = this.shadowRoot.getElementById("menu-checkbox");
+      const menuCheckbox = document.getElementById("menu-checkbox");
       for (let index = 0; index < links.length; index++) {
         const link = links[index];
         link.addEventListener("click", (ev) => {
