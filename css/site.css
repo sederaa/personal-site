@@ -368,12 +368,27 @@ nav a {
     img {
       margin-top: -2%;
     }
+    @media (max-width: 768px) {
+      img {
+        width: 45%;
+      }
+    }
   }
   & .employer-logos__logo.anz {
     flex-basis: 13%;
+    @media (max-width: 768px) {
+      img {
+        width: 60%;
+      }
+    }
   }
   & .employer-logos__logo.fnz {
     flex-basis: 8%;
+    @media (max-width: 768px) {
+      img {
+        width: 45%;
+      }
+    }
   }
   & .employer-logos__logo.eagle {
     img {
@@ -382,6 +397,11 @@ nav a {
   }
   & .employer-logos__logo.isac {
     flex-basis: 10%;
+    @media (max-width: 768px) {
+      img {
+        width: 45%;
+      }
+    }
   }
   & .employer-logos__logo.trademe {
     flex-basis: 17%;
