@@ -330,6 +330,7 @@ nav a {
 }
 
 /* employers */
+
 .section__employers {
   & .employer-logos {
     display: flex;
@@ -417,10 +418,10 @@ nav a {
   & .employer-logos__logo.eagle,
   & .employer-logos__logo.tab {
     html.light & img.light {
-      display: block;
+      display: inline-block;
     }
     html.dark & img.dark {
-      display: block;
+      display: inline-block;
     }
   }
   & .more {
