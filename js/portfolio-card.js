@@ -18,6 +18,9 @@ class PortfolioCard extends HTMLElement {
           }
 
           .card__image {
+            background-size: cover;
+            background-position: center;
+            height: 200px;
           }
 
           .card__image-img {
@@ -80,10 +83,7 @@ class PortfolioCard extends HTMLElement {
     const imageUrl = this.getAttribute("data-image-url");
     if (imageUrl !== undefined && imageUrl !== null) {
       const imageContainer = this.shadowRoot.getElementById("image-container");
-      const image = document.createElement("img");
-      image.src = imageUrl;
-      image.classList.add("card__image-img");
-      imageContainer.appendChild(image);
+      imageContainer.style.backgroundImage = `url(${imageUrl})`;
     }
 
     const context = this.getAttribute("data-context");

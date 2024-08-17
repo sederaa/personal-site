@@ -46,15 +46,12 @@ class PortfolioCardsGrid extends HTMLElement {
       const portfolioCard = document.createElement("portfolio-card");
       portfolioCard.className = "portfolio-card";
       portfolioCard.setAttribute("data-context", data.context);
-      if (data.imageUrl !== undefined)
-        portfolioCard.setAttribute("data-image-url", data.imageUrl);
+      if (data.imageUrl !== undefined) portfolioCard.setAttribute("data-image-url", data.imageUrl);
       portfolioCard.setAttribute("data-title", data.title);
       portfolioCard.setAttribute("data-description", data.description);
       portfolioCard.setAttribute("data-tech", JSON.stringify(data.tech));
-      if (data.url !== undefined)
-        portfolioCard.setAttribute("data-url", data.url);
-      if (data.sourceUrl !== undefined)
-        portfolioCard.setAttribute("data-source-url", data.sourceUrl);
+      if (data.url !== undefined) portfolioCard.setAttribute("data-url", data.url);
+      if (data.sourceUrl !== undefined) portfolioCard.setAttribute("data-source-url", data.sourceUrl);
 
       gridElement.appendChild(portfolioCard);
     });

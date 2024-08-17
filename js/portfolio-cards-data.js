@@ -4,123 +4,77 @@ export default [
   {
     context: "Side Project",
     title: "Cut Optimizer",
-    description:
-      "Optimize your linear material cuts to reduce waste and save money. A side project for learning and utility to help with my DIY projects.",
+    description: "Optimize your linear material cuts to reduce waste and save money. A side project for learning and utility to help with my DIY projects.",
     tech: ["react", "typescript", "xstate", "css3", "html5"], // also Netlify
     url: "https://cutoptimizer.io/",
     sourceUrl: "https://github.com/sederaa/Cutoptimizer.io",
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/cutoptimizer.jpg",
   },
   {
     context: "GoSweetSpot",
     title: "Shopify App",
-    description:
-      "Shopify App embedded in Shopify Admin for labelling and dispatching orders.",
-    tech: [
-      "csharp",
-      "dotnetcore",
-      "graphql",
-      "haproxy",
-      "react",
-      "typescript",
-      "sql",
-      "xstate",
-      "octopusdeploy",
-    ], // Also Shopify
+    description: "Shopify App embedded in Shopify Admin for labelling and dispatching orders.",
+    tech: ["csharp", "dotnetcore", "graphql", "haproxy", "react", "typescript", "sql", "xstate", "octopusdeploy"], // Also Shopify
     url: "https://apps.shopify.com/gosweetspot-dispatch",
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/shopifyapp.png",
   },
   {
     context: "Employer",
     title: "Tracking Event Microservice",
     description:
       "Microservice to receive and store tracking events from carriers by webhook or API polling. Publishes tracking events to other internal apps for display.",
-    tech: [
-      "dotnetcore",
-      "azureservicebus",
-      "csharp",
-      "microsoft-sql-server",
-      "octopusdeploy",
-    ],
+    tech: ["dotnetcore", "azureservicebus", "csharp", "microsoft-sql-server", "octopusdeploy"],
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/eventservice2.png",
   },
   {
     context: "Employer",
     title: "Consumer Freight Dispatch App",
-    description:
-      "Web app for consumers and small businesses to dispatch their freight.",
-    tech: [
-      "csharp",
-      "dotnetcore",
-      "haproxy",
-      "react",
-      "typescript",
-      "sql",
-      "xstate",
-      "octopusdeploy",
-    ],
+    description: "Web app for consumers and small businesses to dispatch their freight.",
+    tech: ["csharp", "dotnetcore", "haproxy", "react", "typescript", "sql", "xstate", "octopusdeploy"],
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/dispatch1.jpg",
   },
   {
     context: "Employer",
     title: "Auth Server",
     description:
       "Auth server implementing OAuth 2.0 and OpenID Connect protocols providing single sign-in to the organisation with support for Google, Microsoft and Facebook sign-in.",
-    tech: [
-      "csharp",
-      "dotnetcore",
-      "haproxy",
-      "sql",
-      "octopusdeploy",
-      "bootstrap",
-      "microsoft-sql-server",
-    ], // Also IdentityServer4, OIDC and OAuth2 logos
+    tech: ["csharp", "dotnetcore", "haproxy", "sql", "octopusdeploy", "bootstrap", "microsoft-sql-server"], // Also IdentityServer4, OIDC and OAuth2 logos
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/authserver.png",
   },
   {
     context: "GoSweetSpot",
     title: "Zapier Integration",
-    description:
-      "Integration with Zapier allowing customers to include GoSweetSpot in their automations with 4000+ other popular apps and services.",
+    description: "Integration with Zapier allowing customers to include GoSweetSpot in their automations with 4000+ other popular apps and services.",
     tech: ["csharp", "dotnetframework"], // Also Zapier icon
     url: "https://zapier.com/apps/gosweetspot/integrations",
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/zapierapp.png",
   },
   {
     context: "Employer",
     title: "Rating Microservice",
-    description:
-      "Microservice to store courier and bulk carrier pricing and calculating freight prices on demand from other apps.",
+    description: "Microservice to store courier and bulk carrier pricing and calculating freight prices on demand from other apps.",
     tech: ["csharp", "dotnetframework", "microsoft-sql-server", "sql"],
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/ratingservice.png",
   },
   {
     context: "Employer",
     title: "Tracking Event Microservice",
     description:
       "Microservice to receive and store tracking events from carriers by API polling, FTP CSV files and email attachments. Publishes tracking events by message broker to other internal apps for display.",
-    tech: [
-      "dotnetframework",
-      "rabbitmq",
-      "csharp",
-      "microsoft-sql-server",
-      "octopusdeploy",
-      "teamcity",
-      "sql",
-    ],
+    tech: ["dotnetframework", "rabbitmq", "csharp", "microsoft-sql-server", "octopusdeploy", "teamcity", "sql"],
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/eventservice1.png",
   },
   {
     context: "Employer",
@@ -130,25 +84,15 @@ export default [
     tech: ["android", "java"], // also motorola logo
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/barcodescannerapp.png",
   },
   {
     context: "Employer",
     title: "Business Freight Dispatch App",
-    description:
-      "Web app for businesses to dispatch their freight, print labels, view reporting and other related functions.",
-    tech: [
-      "bootstrap",
-      "csharp",
-      "dotnetframework",
-      "react",
-      "microsoft-sql-server",
-      "sql",
-      "octopusdeploy",
-      "teamcity",
-    ],
+    description: "Web app for businesses to dispatch their freight, print labels, view reporting and other related functions.",
+    tech: ["bootstrap", "csharp", "dotnetframework", "react", "microsoft-sql-server", "sql", "octopusdeploy", "teamcity"],
     url: undefined,
     sourceUrl: undefined,
-    imageUrl: "https://picsum.photos/400/200",
+    imageUrl: "/img/portfolio/dispatch2.jpg",
   },
 ];
