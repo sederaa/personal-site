@@ -10,21 +10,34 @@ class PortfolioCard extends HTMLElement {
 
       <style>
           .card {
-              background-color: var(--color-bg-tertiary);
-              border: solid 1px var(--color-line-secondary);
-              border-radius: var(--border-radius);
-              overflow: hidden; /*ensures nested elements don't overflow corners*/
+              background: var(--bg-surface);
+              border: 1px solid var(--border);
+              border-radius: 10px;
+              overflow: hidden;
               padding-bottom: calc(var(--spacing-unit) * 3);
+              transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          }
+
+          .card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+              border-color: var(--border-mid);
           }
 
           .card__image {
             background-size: cover;
             background-position: center;
-            height: 200px;
+            height: 180px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+          }
+
+          .card:hover .card__image {
+            transform: scale(1.03);
           }
 
           .card__image-img {
-            height: 200px;
+            height: 180px;
           }
 
           .card__title {
@@ -34,8 +47,16 @@ class PortfolioCard extends HTMLElement {
 
           .card__context {
             padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
-            font-size: 75%;
+            font-family: "DM Mono", ui-monospace, monospace;
+            font-size: 0.68rem;
             text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: var(--accent-dim);
+            display: inline-block;
+            margin: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 5);
+            border-radius: 4px;
+            padding: 2px 6px;
           }
 
           .card__description {
@@ -45,11 +66,14 @@ class PortfolioCard extends HTMLElement {
           .card__techs {
             padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5);
             display: flex;
+            gap: calc(var(--spacing-unit) / 2);
+            opacity: 0.7;
           }
 
           .card__tech-icon {
             height: 1em;
-            flex: 1 1 auto;
+            width: 1em;
+            flex: 0 0 auto;
           }
 
           .card__actions {

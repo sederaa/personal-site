@@ -13,6 +13,13 @@ class PortfolioCardsGrid extends HTMLElement {
           .portfolio-card {
             width: calc(33% - ((var(--spacing-unit) * 5) * 0.66));
             margin-bottom: calc(var(--spacing-unit) * 5);
+            opacity: 0;
+            animation: cardFadeUp 0.5s ease forwards;
+          }
+
+          @keyframes cardFadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
           }
 
           @media (max-width: 950px) {
@@ -42,9 +49,10 @@ class PortfolioCardsGrid extends HTMLElement {
 
     const gridElement = this.shadowRoot.getElementById("grid");
 
-    data.forEach((data) => {
+    data.forEach((data, index) => {
       const portfolioCard = document.createElement("portfolio-card");
       portfolioCard.className = "portfolio-card";
+      portfolioCard.style.animationDelay = `${index * 80}ms`;
       portfolioCard.setAttribute("data-context", data.context);
       if (data.imageUrl !== undefined) portfolioCard.setAttribute("data-image-url", data.imageUrl);
       portfolioCard.setAttribute("data-title", data.title);

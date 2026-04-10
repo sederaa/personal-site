@@ -8,20 +8,21 @@ button.standard-button {
     padding: clamp(5px, calc(var(--spacing-unit) * 1.25), 7px) clamp(12px, calc(var(--spacing-unit) * 3), 18px);
   }
 
-  border: solid 1px var(--color-line-secondary);
-  border-radius: 5em;
-  font-weight: 700;
+  border: solid 1px var(--border-mid);
+  border-radius: 6px;
+  font-weight: 400;
   font-size: 85%;
   white-space: nowrap;
   line-height: 1;
   vertical-align: baseline;
   text-align: center;
-  color: var(--text-color);
+  color: var(--text);
   margin-right: var(--spacing-unit);
   cursor: pointer;
   display: inline-flex;
   gap: var(--spacing-unit);
-  transition: all 0.2s ease-out;
+  align-items: center;
+  transition: all 0.15s ease;
 
   .icon {
     width: 1.1em;
@@ -29,7 +30,20 @@ button.standard-button {
   }
 
   &:hover {
-    color: var(--color-highlight);
-    border: solid 1px var(--color-highlight);
+    background: var(--accent-dim);
+    border-color: rgba(250, 125, 67, 0.45);
+    color: var(--accent) !important;
+  }
+
+  &[type="submit"] {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background: #f86a28;
+      color: #fff !important;
+      border: none;
+    }
   }
 }
