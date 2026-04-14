@@ -180,26 +180,26 @@ html.light .header[data-scrolled] {
   justify-content: end;
 }
 
-nav {
+nav.menu {
   width: 100%;
   position: fixed;
   left: 0;
   top: var(--header-height);
   overflow: hidden;
-
+  background-color: var(--bg);
   max-height: 0;
   transition: max-height 0.5s ease-out;
 }
 
-nav li {
+nav.menu li {
   padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 5);
 }
 
-nav ul {
+nav.menu ul {
   margin: 0;
 }
 
-nav a {
+nav.menu a {
   display: block;
   color: var(--text-muted);
   text-decoration: none;
@@ -271,37 +271,38 @@ nav a {
     justify-content: center;
   }
 
-  nav {
+  nav.menu {
     max-height: unset;
     position: relative;
     width: 100%;
     margin-top: unset;
     top: unset;
+    background-color: unset;
   }
 
-  nav li {
+  nav.menu li {
     padding: var(--spacing-unit) 0;
   }
 
-  nav ul {
+  nav.menu ul {
     display: flex;
     gap: calc(var(--spacing-unit) * 4);
     justify-content: flex-end;
   }
 
-  nav a,
-  nav div.target {
+  nav.menu a,
+  nav.menu div.target {
     text-shadow: none;
     transition: all 0.2s ease-out;
   }
-  nav a:hover,
-  nav div.target:hover {
+  nav.menu a:hover,
+  nav.menu div.target:hover {
     background-color: transparent;
     color: var(--color-highlight);
   }
 
-  nav a span.label,
-  nav div.target span.label {
+  nav.menu a span.label,
+  nav.menu div.target span.label {
     display: none;
   }
 
