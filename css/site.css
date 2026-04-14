@@ -1,16 +1,17 @@
 /* general */
 :root {
   /* Dark first */
-  --bg:          #0D0E14;
-  --bg-surface:  #13151F;
-  --bg-elevated: #1A1D2E;
-  --border:      rgba(255, 255, 255, 0.07);
-  --border-mid:  rgba(255, 255, 255, 0.13);
-  --text:        #E8EAF2;
-  --text-muted:  #6E7A91;
-  --text-dim:    #3D4459;
-  --accent:      #FA7D43;
-  --accent-dim:  rgba(250, 125, 67, 0.12);
+  --bg:                 #0D0E14;
+  --bg-surface:         #13151F;
+  --bg-elevated:        #1A1D2E;
+  --border:             rgba(255, 255, 255, 0.07);
+  --border-mid:         rgba(255, 255, 255, 0.13);
+  --border-mid-solid:   rgb(44, 45, 51);
+  --text:               #E8EAF2;
+  --text-muted:         #6E7A91;
+  --text-dim:           #3D4459;
+  --accent:             #FA7D43;
+  --accent-dim:         rgba(250, 125, 67, 0.12);
 
   /* Backward-compat aliases */
   --color-highlight:       var(--accent);
@@ -37,14 +38,15 @@
 }
 
 html.light {
-  --bg:          #F8F9FB;
-  --bg-surface:  #FFFFFF;
-  --bg-elevated: #EDEEF2;
-  --border:      rgba(0, 0, 0, 0.07);
-  --border-mid:  rgba(0, 0, 0, 0.12);
-  --text:        #0D0E14;
-  --text-muted:  #5C6473;
-  --text-dim:    #9DA3B1;
+  --bg:                #F8F9FB;
+  --bg-surface:        #FFFFFF;
+  --bg-elevated:       #EDEEF2;
+  --border:             rgba(0, 0, 0, 0.07);
+  --border-mid:         rgba(0, 0, 0, 0.12);
+  --border-mid-solid:   rgb(218,219,221);
+  --text:               #0D0E14;
+  --text-muted:         #5C6473;
+  --text-dim:           #9DA3B1;
 }
 
 @supports (font-variation-settings: normal) {
@@ -128,13 +130,28 @@ svg {
 }
 
 .header[data-scrolled] {
-  background-color: rgba(13, 14, 20, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom-color: var(--border-mid);
 }
 
-html.light .header[data-scrolled] {
+/* when mobile menu is open, make header border solid to avoid visual glitch with mobile nav background */
+.header[data-scrolled]:has(.menu-checkbox:checked) {
+  border-bottom-color: var(--border-mid-solid);
+}
+
+/* backdrop-filter is on a ::before rather than the header itself because applying
+   backdrop-filter to a positioned element makes it a containing block for any
+   position:fixed descendants (i.e. the mobile nav), which clips it to the header height. */
+.header[data-scrolled]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(13, 14, 20, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: -1;
+}
+
+html.light .header[data-scrolled]::before {
   background-color: rgba(248, 249, 251, 0.85);
 }
 
@@ -187,6 +204,7 @@ nav.menu {
   top: var(--header-height);
   overflow: hidden;
   background-color: var(--bg);
+  height: 100%;
   max-height: 0;
   transition: max-height 0.5s ease-out;
 }
@@ -273,6 +291,7 @@ nav.menu a {
 
   nav.menu {
     max-height: unset;
+    height: unset;
     position: relative;
     width: 100%;
     margin-top: unset;
