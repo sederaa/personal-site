@@ -175,15 +175,6 @@ html.light .header[data-scrolled]::before {
   font-size: calc(var(--font-size) * 2);
   font-weight: 700;
   white-space: nowrap;
-  color: var(--color-highlight);
-  /*center text vertically*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /*logo*/
-  background-image: url(/img/logo.png);
-  background-size: contain;
-  background-position: left;
   margin: var(--spacing-unit) 0;
 }
 
