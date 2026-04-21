@@ -385,6 +385,32 @@ nav.menu a {
   background-clip: text;
 }
 
+/* Header logo enhancements */
+.header__logo .name-gradient {
+  background: linear-gradient(90deg, #FA7D43, #FFB380, #FA7D43);
+  background-size: 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: logo-shimmer 4s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes logo-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.header__logo-surname {
+  font-weight: 400;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+.header__logo:hover .header__logo-surname {
+  opacity: 1;
+}
+
 .section__intro-menu {
   transition: 0.4s;
   display: flex;
