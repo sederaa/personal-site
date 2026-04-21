@@ -96,6 +96,22 @@ class TechListing extends HTMLElement {
             <ul>
               <li>
                 <img
+                  src="/img/tech-logos/github-copilot.svg"
+                  alt="GitHub Copilot logo"
+                  class="section__tech-logo"
+                />
+                GitHub Copilot
+              </li>
+              <li>
+                <img
+                  src="/img/tech-logos/chatgpt.svg"
+                  alt="ChatGPT logo"
+                  class="section__tech-logo"
+                />
+                ChatGPT
+              </li>
+              <li>
+                <img
                   src="/img/tech-logos/react.svg"
                   alt="React logo"
                   class="section__tech-logo"
