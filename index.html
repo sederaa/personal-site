@@ -150,45 +150,8 @@
         <div class="section__content">
           <h2 class="reveal">Employers</h2>
 
-          <ul class="employer-logos reveal" data-delay="1">
-            <li class="employer-logos__logo gosweetspot">
-              <a href="https://gosweetspot.com" target="_blank" rel="noopener">
-                <img src="/img/employers/gosweetspot.svg" alt="GoSweetSpot logo" />
-              </a>
-            </li>
-            <li class="employer-logos__logo trademe">
-              <a href="https://www.trademe.co.nz/" target="_blank" rel="noopener">
-                <img src="/img/employers/trademe.png" alt="TradeMe logo" />
-              </a>
-            </li>
-            <li class="employer-logos__logo anz">
-              <a href="https://www.anz.co.nz/" target="_blank" rel="noopener">
-                <img src="/img/employers/anz.png" alt="ANZ logo" />
-              </a>
-            </li>
-            <li class="employer-logos__logo eagle">
-              <a href="https://www.eagle.co.nz/" target="_blank" rel="noopener">
-                <img src="/img/employers/eagle_lightbg.webp" alt="Eagle logo" class="light" />
-                <img src="/img/employers/eagle_darkbg.png" alt="Eagle logo" class="dark" />
-              </a>
-            </li>
-            <li class="employer-logos__logo fnz">
-              <a href="https://www.fnz.co.nz/" target="_blank" rel="noopener">
-                <img src="/img/employers/fnz_lightbg.svg" alt="FNZ logo" class="light" />
-                <img src="/img/employers/fnz_darkbg.svg" alt="FNZ logo" class="dark" />
-              </a>
-            </li>
-            <li class="employer-logos__logo tab">
-              <a href="https://tabnz.org" target="_blank" rel="noopener">
-                <img src="/img/employers/tab_lightbg.svg" alt="TAB logo" class="light" />
-                <img src="/img/employers/tab_darkbg.svg" alt="TAB logo" class="dark" />
-              </a>
-            </li>
-            <li class="employer-logos__logo isac">
-              <a href="https://isac.co.nz" target="_blank" rel="noopener">
-                <img src="/img/employers/isac.webp" alt="ISAC logo" />
-              </a>
-            </li>
+          <ul id="employer-logos" class="employer-logos reveal" data-delay="1">
+           
           </ul>
           <p class="more muted reveal" data-delay="2">
             + Timexchange &bull;
@@ -285,6 +248,72 @@
         { threshold: 0.12 }
       );
       document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+    <script type="module">
+      import { createLogoSoup, getVisualCenterTransform } from "/lib/@sanity-labs__logo-soup/core/index.js";
+
+      const engine = createLogoSoup();
+
+      engine.subscribe(() => {
+        const { status, normalizedLogos, error } = engine.getSnapshot();
+
+        if (status === "loading") {
+          document.getElementById("employer-logos").innerHTML = "Loading...";
+          return;
+        }
+
+        if (status === "error") {
+          console.error("Failed to load logos:", error);
+          return;
+        }
+
+        if (status === "ready") {
+          const container = document.getElementById("employer-logos");
+          container.innerHTML = normalizedLogos
+            .map((logo) => {
+              const transform = getVisualCenterTransform(logo, "visual-center-y");
+              const [alt, url] = logo.alt.split("|");
+              return `<li class="employer-logos__logo"><a href="${url}" target="_blank" rel="noopener noreferrer"
+                ><img
+                  src="${logo.croppedSrc || logo.src}"
+                  alt="${alt}"
+                  width="${logo.normalizedWidth}"
+                  height="${logo.normalizedHeight}"
+                  style="
+                    display: inline-block;
+                    margin: 0 14px;
+                    transform: ${transform ?? "none"};
+                  "
+                /></a></li>`;
+            })
+            .join("");
+        }
+      });
+
+      const optionsBuilder = (theme) => ({
+        logos: [
+          { src: "/img/employers/gosweetspot.svg", alt: "GoSweetSpot logo|https://gosweetspot.com" },
+          { src: "/img/employers/trademe.png", alt: "TradeMe logo|https://www.trademe.co.nz/" },
+          { src: "/img/employers/anz.png", alt: "ANZ logo|https://www.anz.co.nz/" },
+          { src: theme === "light" ? "/img/employers/eagle_lightbg.webp" : "/img/employers/eagle_darkbg.png", alt: "Eagle logo|https://www.eagle.co.nz/" },
+          { src: theme === "light" ? "/img/employers/fnz_lightbg.svg" : "/img/employers/fnz_darkbg.svg", alt: "FNZ logo|https://www.fnz.co.nz/" },
+          { src: theme === "light" ? "/img/employers/tab_lightbg.svg" : "/img/employers/tab_darkbg.svg", alt: "TAB logo|https://tabnz.org" },
+          { src: "/img/employers/isac.webp", alt: "ISAC logo|https://isac.co.nz" },
+        ],
+        baseSize: 64,
+        scaleFactor: 0.5,
+        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue("--bg-surface").trim(),
+      });
+
+      const theme = document.documentElement.classList.contains("dark") ? "dark" : "light";      
+      const options = optionsBuilder(theme);
+
+      engine.process(options);
+
+      window.addEventListener("dev.sebdr.themechanged", (ev) => {
+        const newTheme = ev.detail.theme;
+        engine.process(optionsBuilder(newTheme));
+      });
     </script>
   </body>
 </html>

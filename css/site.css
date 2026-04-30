@@ -441,7 +441,7 @@ nav.menu a {
     flex: 1 1 calc(100% / 7); /* dfault flex-basis is 100% / 7 logos */
     align-self: center;
     text-align: center;
-    opacity: 0.55;
+    opacity: 0.85;
     transition: opacity 0.25s ease;
 
     &:hover {

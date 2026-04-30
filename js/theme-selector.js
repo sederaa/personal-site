@@ -23,6 +23,11 @@ class ThemeSelector extends HTMLElement {
       document.documentElement.classList.add(theme);
     };
 
+    const dispatchThemeChangedEvent = (theme) => {
+      const event = new CustomEvent("dev.sebdr.themechanged", { detail: { theme } });
+      window.dispatchEvent(event);
+    }
+
     const updateSelectorUI = (currentTheme, nextTheme) => {
       const iconMap = {
         system:
@@ -40,12 +45,14 @@ class ThemeSelector extends HTMLElement {
     const storedTheme = localStorage.getItem("theme") ?? "system";
 
     applyUITheme(storedTheme === "system" ? systemTheme : storedTheme);
+    //dispatchThemeChangedEvent(storedTheme === "system" ? systemTheme : storedTheme);
     updateSelectorUI(storedTheme, nextTheme(storedTheme));
 
     prefersColorSchemeMedia.addEventListener("change", (evnt) => {
       const storedTheme = localStorage.getItem("theme") ?? "system";
       if (storedTheme !== "system") return;
       applyUITheme(evnt.matches ? "dark" : "light");
+      dispatchThemeChangedEvent(evnt.matches ? "dark" : "light");
     });
 
     this.element.addEventListener("click", () => {
@@ -55,6 +62,7 @@ class ThemeSelector extends HTMLElement {
       const nextDisplayTheme = nextThemeValue === "system" ? (prefersColorSchemeMedia.matches ? "dark" : "light") : nextThemeValue;
       localStorage.setItem("theme", nextThemeValue);
       applyUITheme(nextDisplayTheme);
+      dispatchThemeChangedEvent(nextDisplayTheme);
       updateSelectorUI(nextThemeValue, nextNextTheme);
     });
 
