@@ -120,7 +120,7 @@ class TechListing extends HTMLElement {
               </li>
               <li>
                 <img
-                  src="/img/tech-logos/css3.svg"
+                  src="/img/tech-logos/css.svg"
                   alt="CSS logo"
                   class="section__tech-logo"
                 />
