@@ -5,9 +5,9 @@ export default [
     context: "Side Project",
     title: "Cut Optimizer",
     description: "Optimize your linear material cuts to reduce waste and save money. A side project for learning and utility to help with my DIY projects.",
-    tech: ["react", "typescript", "xstate", "css3", "html5"], // also Netlify
-    url: "https://cutoptimizer.io/",
-    sourceUrl: "https://github.com/sederaa/Cutoptimizer.io",
+    tech: ["react", "typescript", "xstate", "css3", "html5"], // Also Cloudflare logo for hosting 
+    url: "https://cutoptimizer.seb-59f.workers.dev/",
+    sourceUrl: "https://github.com/sederaa/cutoptimizer",
     imageUrl: "/img/portfolio/cutoptimizer.jpg",
   },
   {
